@@ -70,7 +70,6 @@ public class ValidateUser extends HttpServlet {
 
 		  }
 		  logger.info(",START,"+client_ip+","+server_ip +",ValidateUser,"+startTime);
-		  //System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+ under_construction);
 		 if (under_construction) {
 			 String url = request.getContextPath() + "/under_construction.jsp";
 			 response.sendRedirect(url);
