@@ -1,0 +1,745 @@
+<script type="text/javascript" src="../common/script/main.js"></script>
+<script type="text/javascript" src="{menuJS}"></script>
+<input type="hidden" name="company_id" id="company_id" value="{company_id}" />
+<input type="hidden" name="user_id" id="user_id" value="{user_id}" />
+<script type="text/javascript" src="../common/script/RestService.js" ></script>
+<script type="text/javascript" src="../common/script/dbForm.js" ></script>
+<script type="text/javascript" src="../common/script/dbToolbar.js" ></script>
+<script type="text/javascript" src="../common/script/DataValidator.js" ></script>
+<script type="text/javascript" src="../common/script/CommonUtil.js" ></script>
+<script type="text/javascript" src="../common/script/jquery/jquery.toaster.js" ></script>
+<script type="text/javascript" src="../common/script/jsdatetime/Scripts/DateTimePicker.js"></script>
+<script type="text/javascript" src="../common/script/jquery.tableExport/tableExport.js"></script>
+<script type="text/javascript" src="../common/script/jquery.tableExport/jquery.base64.js"></script>
+       
+<link href="../common/script/jqueryui/jquery-ui-redmond.1.9.1.css" rel="stylesheet"/>           
+<script src="../common/script/jqueryui/jquery-ui.1.9.1.js"></script>
+
+<link href="../common/script/jqgrid/css/ui.jqgrid.css" rel="stylesheet"/>           
+<script src="../common/script/jqgrid/js/i18n/grid.locale-vi.js"></script>            
+<script src="../common/script/jqgrid/js/jquery.jqGrid.min.js"></script>
+
+<script type="text/javascript" src="../common/script/UIUtil.js" ></script>
+<script type="text/javascript" src="../dynform/ListMgrEx.js"></script>
+
+<div  width="100%"  id="divMain" class="container">
+	<div class="row">
+            <div class="col-md-12">
+            	<div id="divFilter" style="width: 100%; display: block">
+				</div>
+          	</div>
+    </div>
+	<div class="row">
+            <div class="col-md-12">
+            	<div id="divContent" style="width: 100%; display: block">
+				</div>
+          	</div>
+    </div>
+    <div class="row">
+            <div class="col-md-4">
+                 <div id="custom_toolbar" align="left"></div>
+             </div>
+             <div class="col-md-8" align="left">
+ 				<div id="db_toolbar" > </div>
+			</div>
+    </div>
+     <div class="row">
+            <div class="col-md-12">
+            	<table id="gridInfo"></table><div id="pager_gridInfo"></div>
+          	</div>
+    </div>
+</div>
+
+<script type="text/x-template" id='template-Khoa'>
+<fieldset>
+        <legend>DEPARTMENT LIST MANAGEMENT</legend>
+        <div class="row  form-group required">
+            <div class="col-xs-2 control-label">Science code</div>
+            <div class="col-xs-4"><input class="form-control input-sm" id="txtMA_KHOA" name="txtMA_KHOA" title="">
+            </div>
+            <div class="col-xs-2 control-label">Science name</div>
+            <div class="col-xs-4"><input class="form-control input-sm" id="txtTEN_KHOA" name="txtTEN_KHOA" title="" >
+            </div>
+        </div>
+		<div class="row  form-group  required">			
+            <div class="col-xs-6"><label class="control-label">Note:</label> item required to input information</div>
+            <div class="col-xs-6"> </div>
+        </div>
+    </fieldset>
+</script>
+<script type="text/x-template" id='template-TuyenBV'>
+	<fieldset>
+        <legend>MEDICAL LEVEL LIST MANAGEMENT</legend>
+        <div class="row form-group required">
+            <div class="col-md-2 control-label">Medical level code</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtMA_SO" name="txtTEN" disabled title="" >
+            </div>
+			<div class="col-md-2 control-label">Medical level name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtTEN" name="txtTEN" title="" >
+            </div>
+        </div>
+    </fieldset>
+</script>
+<script type="text/x-template" id='template-HangBV'>
+	<fieldset>
+        <legend>HOSPITAL CLASS LIST MANAGEMENT</legend>
+        <div class="row form-group required">
+			<div class="col-md-2 control-label">Hospital class code</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtMA_SO" name="txtTEN" disabled title="" >
+            </div>
+            <div class="col-md-2 control-label">Hospital class name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtTEN" name="txtTEN" title="" >
+            </div>
+        </div>
+		<div class="row form-group required">			
+            <div class="col-md-6"><label class="control-label">Note:</label> item required to input information</div>
+            <div class="col-md-6"> </div>
+        </div>
+    </fieldset>
+</script>
+
+
+<script type="text/x-template" id='template-CSKCB-Filter'>
+	<fieldset>
+        <legend>Search</legend>
+        <div class="row form-group form-group-sm">
+            <div class="col-md-2">Province</div>
+            <div class="col-md-4"><select class="form-control input-sm" name="cboMA_TINH"  id="cboMA_TINH"></select></div>
+			<div class="col-md-2">District</div>
+            <div class="col-md-4"><select class="form-control input-sm" name="cboMA_HUYEN" id="cboMA_HUYEN"></select></div>
+        </div>
+    </fieldset>
+</script>
+<script type="text/x-template" id='template-CSKCB'>
+<fieldset>
+        <legend>HOSPITAL LIST MANAGEMENT</legend>
+        <div class="row form-group required">
+            <div class="col-md-2 control-label">Hospital code</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtMA_BV" name="txtMA_BV" title="">
+            </div>
+            <div class="col-md-2 control-label">Hospital name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtTEN_BV" name="txtTEN_BV" title="" >
+            </div>
+        </div>
+        <div class="row form-group required">
+            <div class="col-md-2 control-label">Medical level</div>
+            <div class="col-md-4"><select name="cboTUYEN_BV" id="cboTUYEN_BV" class="form-control input-sm"></select></div>
+            <div class="col-md-2 control-label">Hospital class</div>
+            <div class="col-md-4"><select name="cboHANG_BV" id="cboHANG_BV" class="form-control input-sm"></select>
+            </div>
+        </div>
+        <div class="row form-group required">
+            <div class="col-md-2 control-label">Address</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtDIA_CHI" name="txtDIA_CHI" title="">
+            </div>
+            <div class="col-md-2 control-label">Deploy state</div>
+            <div class="col-md-4"><select id="cboTT_TRIENKHAI" class="form-control input-sm"></select></div>
+        </div>
+		<div class="row form-group required">            
+            <div class="col-md-2 control-label">Noted</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtGHICHU" name="txtGHICHU" title=""></div>
+			<div class="col-md-2 control-label">Deployment unit</div>
+            <div class="col-md-4"><select id="cboDV_TRIENKHAI" class="form-control input-sm"></select></div>
+        </div>
+		<div class="row form-group required">			
+            <div class="col-md-6"><label class="control-label">Note:</label> item required to input information</div>
+            <div class="col-md-6"> </div>
+        </div>
+    </fieldset>
+
+</script>
+<script type="text/x-template" id='template-BENHYHCT'>
+<fieldset>
+        <legend>TRADITIONAL MEDICINE LIST MANAGEMENT</legend>
+        <div class="row form-group required">
+            <div class="col-md-2 control-label">ICD 10 code</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtMA_BENH_ICD_10" name="txtMA_BENH_ICD_10" title="">
+            </div>
+            <div class="col-md-2 control-label">Traditional medicine name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtTEN_BENH_YHHD" name="txtTEN_BENH_YHHD" title="" required>
+            </div>
+        </div>
+        <div class="row form-group required">
+            <div class="col-md-2 control-label">traditional medicine symptoms</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtCHUNG_BENH_YHCT" name="txtCHUNG_BENH_YHCT" title="" >
+			</div>
+            <div class="col-md-2 control-label">Appraisal name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtTEN_TH_GIAMDINH" name="txtTEN_TH_GIAMDINH" title="" ></div>            
+        </div>        
+		<div class="row form-group required">			
+            <div class="col-md-6"><label class="control-label">Note:</label> item required to input information</div>
+            <div class="col-md-6"> </div>
+        </div>
+    </fieldset>
+</script>
+<script type="text/x-template" id='template-Tinh'>
+	<fieldset>
+        <legend>PROVINCE LIST MANAGEMENT</legend>
+        <div class="row form-group required">
+            
+            <div class="col-md-2 control-label">Province name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtTEN_TINH" name="txtTEN_TINH" title="" >
+            </div>
+        </div>
+  		<div class="row form-group required">   
+            <div class="col-md-6"><label class="control-label">Note:</label> item required to input information</div>
+            <div class="col-md-6"> </div>
+        </div>
+    </fieldset>
+</script>
+<script type="text/x-template" id='template-Huyen-Filter'>
+	<fieldset>
+        <legend>Search</legend>
+        <div class="row form-group form-group-sm">
+            <div class="col-md-2">Province</div>
+            <div class="col-md-10"><select class="form-control input-sm" name="cboMA_TINH"  id="cboMA_TINH"></select></div>
+        </div>
+    </fieldset>
+</script>
+<script type="text/x-template" id='template-Huyen'>
+	<fieldset>
+        <legend>DISTRICT LIST MANAGEMENT</legend>
+        <div class="row form-group required">
+			<div class="col-md-2 control-label">District code</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtMA_SO" name="txtMA_SO" disabled title="" ></div>
+            <div class="col-md-2 control-label">District name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtTEN_HUYEN" name="txtTEN_HUYEN" title="" ></div>
+        </div>
+		
+		<div class="row form-group required">			
+            <div class="col-md-6"><label class="control-label">Note:</label> item required to input information</div>
+            <div class="col-md-6"> </div>
+        </div>
+    </fieldset>
+
+</script>
+<script type="text/x-template" id='template-THEBHYT-Filter'>
+	<fieldset>
+        <legend>Search health insurance card</legend>
+        <div class="row form-group ">
+            <div class="col-xs-2">Card code</div>
+            <div class="col-xs-4"><input class="form-control input-sm" id="txtMA_THE" name="txtMA_THE" title="" ></div>
+			<div class="col-xs-2">
+				<button type="button" class="btn btn-default btn-sm" id="cmdFilter">
+  				<span class="glyphicon glyphicon-search"></span>Search
+				</button>
+			</div>
+        </div>
+    </fieldset>
+</script>
+<script type="text/x-template" id='template-THEBHYT'>
+	<fieldset>
+        <legend>CARD INFOMATION</legend>
+		<div style='padding-left:15px; padding-right:15px; padding-bottom:10px;'>
+        <div class="row form-inline" >
+			<div class="col-xs-3 low-padding">	          		
+				<label  class='l-col-1'>Card No</label>							
+				<input class="form-control input-sm i-col-1" id="txtTHE_BHYT" name="txtTHE_BHYT" title="" disabled>
+			</div>
+			<div class="col-xs-3 low-padding">	          		
+				<label  class='l-col-1'>Area Code</label>
+				<input class="form-control input-sm i-col-1" id="txtMAKHUVUC" name="txtMAKHUVUC" title="" disabled>      					
+			</div>
+			<div class="col-xs-3 low-padding">	          		
+				<label  class='l-col-1'>Valid from</label>
+				<input class="form-control input-sm i-col-1" id="txtHANSUDUNG_TUNGAY" name="txtHANSUDUNG_TUNGAY" title="" disabled>      					
+			</div>
+			<div class="col-xs-3 low-padding">	          		
+				<label  class='l-col-1'>Valid to</label>
+				<input class="form-control input-sm i-col-1" id="txtHANSUDUNG_DENNGAY" name="txtHANSUDUNG_DENNGAY" title="" disabled>      					
+			</div>
+        </div>
+		<div class="row form-inline" >
+			<div class="col-xs-6 low-padding">	          		
+				<label  class='l-col-2'>Full name</label>							
+				<input class="form-control input-sm i-col-2" id="txtHOTEN" name="txtHOTEN" title="" disabled>
+			</div>
+			<div class="col-xs-3 low-padding">	          		
+				<label  class='l-col-1'>DoB</label>
+				<input class="form-control input-sm i-col-1" id="txtNGAYSINH" name="txtNGAYSINH" title="" disabled>      					
+			</div>
+			<div class="col-xs-3 low-padding">	          		
+				<label  class='l-col-1'>Gender</label>
+				<input class="form-control input-sm i-col-1" id="txtGIOITINH" name="txtGIOITINH" title="" disabled>      					
+			</div>			
+        </div>
+		<div class="row form-inline" >
+			<div class="col-xs-6 low-padding">	          		
+				<label  class='l-col-2'>Address</label>							
+				<input class="form-control input-sm i-col-2" id="txtDIACHI" name="txtDIACHI" title="" disabled>
+			</div>
+			<div class="col-xs-6 low-padding">	          		
+				<label  class='l-col-2'>Initial Hospital</label>
+				<div class="i-col-2 form-inline">								  
+					<input class="form-control input-sm" style="width:20%;" id="txtMA_NOI_DKKHAM" name="txtMA_NOI_DKKHAM" title="" disabled>
+					<span> </span>							 
+					<input class="form-control input-sm" style="width:78.5%;" id="txtNOI_DKKHAM" name="txtNOI_DKKHAM" title="" disabled>
+				</div>	   					
+			</div>			
+        </div>
+		</div>			
+    </fieldset>
+
+</script>
+<script type="text/x-template" id='template-NhomTheoChiPhi'>
+	<fieldset>
+        <legend>COST GROUP LIST MANAGEMENT</legend>
+        <div class="row form-group required">
+			<div class="col-md-2 control-label">Group Name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtTEN_NHOM" name="txtTEN_NHOM" title="" ></div>
+            <div class="col-md-2">Note</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtGHI_CHU" name="txtGHI_CHU" title="" ></div>
+        </div>
+		
+		<div class="row form-group required">			
+            <div class="col-md-6"><label class="control-label">Note:</label> item required to input information</div>
+            <div class="col-md-6"> </div>
+        </div>
+    </fieldset>
+
+</script>
+
+<script type="text/x-template" id='template-DVKT'>
+	<fieldset>
+        <legend>SERVICE LIST MANAGEMENT</legend>
+        <div class="row form-group form-inline">			
+			<div class="col-md-2 control-label">Service Group</div>
+            <div class="col-md-4"><select class="form-control input-sm" name="cboNHOM_DVKT_ID"  id="cboNHOM_DVKT_ID"  style="width:100%;" ></select>
+            </div>
+			<div class="col-md-2 control-label">Surgery type</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtLOAI_PTTT" name="txtLOAI_PTTT" title=""  style="width:100%;" >
+            </div>
+        </div>
+		<div class="row form-group required form-inline">
+			<div class="col-md-2 control-label">Service code</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtMA_DVKT" name="txtMA_DVKT" title=""  style="width:100%;" >
+            </div>
+			<div class="col-md-2 control-label">TT43-50 Service code</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtMA_DVKT_TT43_50" name="txtMA_DVKT_TT43_50" title=""  style="width:100%;" >
+            </div>			
+        </div>
+		<div class="row form-group required form-inline">
+			<div class="col-md-2 control-label">Service Name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtTEN_DVKT" name="txtTEN_DVKT" title=""  style="width:100%;" >
+            </div>
+			<div class="col-md-2 control-label">TT37 Service name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtTEN_DVKT_TT37" name="txtTEN_DVKT_TT37" title=""  style="width:100%;" >
+            </div>			
+        </div>
+		<div class="row form-group  form-inline">
+			<div class="col-md-2 control-label">Price code</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtMA_GIA" name="txtMA_GIA" title=""  style="width:100%;" >
+            </div>
+			<div class="col-md-2 control-label">T3 Price</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtGIA_T3" name="txtGIA_T3" title=""  style="width:100%;" >
+            </div>			
+        </div>
+		<div class="row form-group  form-inline">
+			<div class="col-md-2 control-label">Order</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtSTT" name="txtSTT" title=""  style="width:100%;" >
+            </div>
+			<div class="col-md-2 control-label">T7 Price</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtGIA_T7" name="txtGIA_T7" title=""  style="width:100%;" >
+            </div>			
+        </div>
+		<div class="row form-group form-inline">
+			<div class="col-md-2 control-label">Note</div>
+            <div class="col-md-10"><input class="form-control input-sm" id="txtGHI_CHU" name="txtGHI_CHU" title=""  style="width:100%;" >
+            </div>		
+        </div>
+<div class="row form-group">			
+            <div class="col-md-6"><label class="control-label">Note:</label> item required to input information</div>
+            <div class="col-md-6"> </div>
+        </div>		 		  		
+    </fieldset>
+</script>
+<script type="text/x-template" id='template-DMDDUNG'>
+<fieldset>
+        <legend>USING LIST MANAGEMENT</legend>
+        <div class="row form-group required">
+            <div class="col-md-2 control-label">Code</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtMA_SO" name="txtMA_SO" title="">
+            </div>
+            <div class="col-md-2 control-label">Using code</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtMA_DUONG_DUNG" name="txtMA_DUONG_DUNG" title="" >
+            </div>
+        </div>
+        <div class="row form-group required">
+            <div class="col-md-2 control-label">Using name</div>
+            <div class="col-md-10"><input class="form-control input-sm" id="txtDUONG_DUNG" name="txtDUONG_DUNG" title="" >
+            </div>
+        </div>
+		<div class="row form-group required">			
+            <div class="col-md-6"><label class="control-label">Note:</label> item required to input information</div>
+            <div class="col-md-6"> </div>
+        </div>
+    </fieldset>
+
+</script>
+
+<script type="text/x-template" id='template-MACPTYHCT'>
+<fieldset>
+        <legend>TRADITIONAL MEDICINE PREPARATIONS MANAGEMENT</legend>
+        <div class="row form-group required">
+            <div class="col-md-2 control-label">Code</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtMA_SO" name="txtMA_SO" title="">
+            </div>
+            <div class="col-md-2 control-label">Medicine code</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtMA_THUOC" name="txtMA_THUOC" title="" >
+            </div>
+        </div>
+        <div class="row form-group required">
+            <div class="col-md-2 control-label">Medichine name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtTEN_THUOC" name="txtTEN_THUOC" title="" >
+            </div>
+            <div class="col-md-2 control-label">Ingredient</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtHOAT_CHAT" name="txtHOAT_CHAT" title="" >
+            </div>
+        </div>
+		<div class="row form-group required">
+            <div class="col-md-2 control-label">Cover</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtBAO_CHE" name="txtBAO_CHE" title="" >
+            </div>
+            <div class="col-md-2 control-label">Package</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtDONG_GOI" name="txtDONG_GOI" title="" >
+            </div>
+        </div>
+		<div class="row form-group required">
+            <div class="col-md-2 control-label">Original</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtNGUON_GOC" name="txtNGUON_GOC" title="" >
+            </div>
+            <div class="col-md-2 control-label">Order</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtSTT_NHOM_TACDUNG" name="txtSTT_NHOM_TACDUNG" title="" >
+            </div>
+        </div>
+		<div class="row form-group required">			
+            <div class="col-md-6"><label class="control-label">Note:</label> item required to input information</div>
+            <div class="col-md-6"> </div>
+        </div>
+    </fieldset>
+
+</script>
+<script type="text/x-template" id='template-Company-Filter'>
+	<fieldset>
+        <legend>Filter</legend>
+        <div class="row form-group form-group-sm">
+            <div class="col-md-2">Province</div>
+            <div class="col-md-4"><select class="form-control input-sm" id="cboPROVINCE_ID"></select></div>
+			<div class="col-md-2 control-label">Company type</div>
+       		<div class="col-md-4"><select class="form-control input-sm" id="cboCOMPANY_TYPE" style="width:100%;" ></select></div>
+        </div>
+    </fieldset>
+</script>
+<script type="text/x-template" id='template-Company'>
+<fieldset>
+        <legend>COMPANY MANAGER</legend>
+        <div class="row form-group required">
+            <div class="col-md-2 control-label">Company name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtCOMPANY_NAME">
+            </div>
+            <div class="col-md-2 control-label">Company code</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtCOMPANY_CODE">
+            </div>
+        </div>
+		<div class="row form-group required">
+            
+            <div class="col-md-2 control-label">Hospital</div>
+            <div class="col-md-10"><select class="form-control input-sm" id="cboHOSPITAL_ID" style="width:100%;" ></select>
+            </div>
+        </div>
+    </fieldset>
+</script>
+
+<script type="text/x-template" id='template-UserGroup'>
+<fieldset>
+        <legend>USER GROUP MANAGEMENT</legend>
+        <div class="row form-group required">
+            <div class="col-md-2 control-label">User group name</div>
+            <div class="col-md-10"><input class="form-control input-sm" id="txtUSER_GROUP_NAME" name="txtUSER_GROUP_NAME" title="">
+            </div>
+        </div>
+</fieldset>
+</script>
+<script type="text/x-template" id='template-User-Filter'>
+	<fieldset>
+        <legend>Filter</legend>
+        <div class="row form-group form-group-sm">
+            <div class="col-md-2">Provice</div>
+            <div class="col-md-4"><select class="form-control input-sm" id="cboMA_TINH"></select></div>
+			<div class="col-md-2 control-label">User group</div>
+            <div class="col-md-4">
+            	<select id="cboUSER_GROUP_ID" name="cboUSER_GROUP_ID" class="form-control input-sm"></select>
+            </div>
+        </div>
+    </fieldset>
+</script>
+<script type="text/x-template" id='template-User'>
+<fieldset>
+        <legend>USER MANAGEMENT</legend>
+        <div class="row form-group required">
+            <div class="col-md-2 control-label">User name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtUSER_NAME" name="txtUSER_NAME" title="">
+            </div>
+            <div class="col-md-2 control-label">Full name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtFULL_NAME" name="txtFULL_NAME" title="" >
+            </div>
+        </div>
+		
+		<div class="row form-group required">
+            <div class="col-md-2 control-label">Password</div>
+            <div class="col-md-4"><input type="password" class="form-control input-sm" id="txtUSER_PWD" name="txtUSER_PWD" title="">
+            </div>
+            <div class="col-md-2 control-label">Access level</div>
+            <div class="col-md-4">
+            	<select id="cboUSER_LEVEL" name="cboUSER_LEVEL" class="form-control input-sm">
+					<option value="-1" selected="selected">- Select level ò access -</option>
+					<option value="0">Level 0</option>
+					<option value="1">Level 1</option>
+					<option value="2">Level 2</option>
+				</select>
+            </div>
+        </div>
+        <div class="row form-group required">
+            <div class="col-md-2 control-label">Company</div>
+            <div class="col-md-4">
+            	<select id="cboCOMPANY_ID" name="cboCOMPANY_ID" class="form-control input-sm"></select>
+            </div>
+			<div class="col-md-2">Hospital</div>
+            <div class="col-md-4"><select class="form-control input-sm" id="cboHOSPITAL_ID"></select></div>
+        </div>
+		<div class="row form-group required">
+			<div class="col-md-2 control-label">User name (BHXH)</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtINSR_USER_NAME" name="txtINSR_USER_NAME" title="">
+            </div>
+            <div class="col-md-2 control-label">Password (BHXH)</div>
+            <div class="col-md-4"><input type="password" class="form-control input-sm" id="txtINSR_USER_PWD" name="txtINSR_USER_PWD" title="">
+            </div>
+        </div>
+    </fieldset>
+</script>
+
+<script type="text/x-template" id='template-KY_GD'>
+<fieldset>
+        <legend>EVALUATION PHASE</legend>
+        <div class="row form-group required">
+            <div class="col-md-2 control-label">Phase name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtKY_GD_NAME" title="">
+            </div>
+            <div class="col-md-2 control-label">Phase state</div>
+            <div class="col-md-4"><select id="cboKY_GD_STATUS" class="form-control input-sm">
+					<option value="1">Active</option>
+					<option value="0">Inactive</option>
+				</select>
+            </div>
+        </div>
+		
+        <div class="row form-group required">
+            <div class="col-md-2 control-label">Phase type</div>
+            <div class="col-md-4"><select id="cboKY_GD_TYPE" class="form-control input-sm">
+				<option value="1">Day</option>
+				<option value="2">Week</option>
+				<option value="3">Month</option>
+				<option value="4">Quarter</option>
+				<option value="5">Year</option>
+			</select>
+            </div>
+            <div class="col-md-2 control-label">Value</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtKY_GD_VALUE" title="">
+            </div>
+        </div>
+		<div class="row form-group required">
+            <div class="col-md-2 control-label">Start date</div>
+            <div class="col-md-4">
+				<div class="input-group">								  
+					<input class="form-control input-sm" id="txtBEGIN_DATE" name="txtBEGIN_DATE" title="">
+					<span class="btn input-group-addon datepicker-sm glyphicon glyphicon-calendar" id="BEGIN_DATE"  onclick="NewCssCal('txtBEGIN_DATE','ddMMyyyy','dropdown',true,'24',true)"></span>
+				</div>
+            </div>
+            <div class="col-md-2 control-label">End date</div>
+            <div class="col-md-4">
+				<div class="input-group">								  
+					<input class="form-control input-sm" id="txtEND_DATE" name="txtEND_DATE" title="">
+					<span class="btn input-group-addon datepicker-sm glyphicon glyphicon-calendar" id="END_DATE"  onclick="NewCssCal('txtEND_DATE','ddMMyyyy','dropdown',true,'24',true)"></span>
+				</div>
+            </div>
+        </div>
+    </fieldset>
+</script>
+
+<script type="text/x-template" id='template-Log-Filter'>
+						<table class="uiTable">
+							<tr>
+								<td colspan='7' class="uiGroupHeader">Logs</td>
+							</tr>
+							<tr>
+								<td width="12%" align="left" class = "uiContent">From date</td>
+								<td width="20%" align="left">
+									<input class="uiTextBox" type="text" name="txtFROM_DT" id="txtFROM_DT" onclick="NewCssCal('txtFROM_DT','ddMMyyyy','dropdown',true,'24',true)" ></input>
+								</td>		
+								<td width="5%" align="left" class = "uiContent"></td>		
+								<td width="12%" align="left" class = "uiContent">To date</td>
+								<td width="20%" align="left">
+									<input class="uiTextBox" type="text" name="txtTO_DT" id="txtTO_DT" onclick="NewCssCal('txtTO_DT','ddMMyyyy','dropdown',true,'24',true)" ></input>
+								</td>
+								<td width="5%" align="left" class = "uiContent"></td>
+								<td width="20%" align="left">
+									<button type="button" class="btn btn-default btn-md" id="cmdFilter">
+  										<span class="glyphicon glyphicon-search"></span> Filter
+									</button>
+								</td>
+							</tr>	
+						</table>
+</script>		    
+<script type="text/x-template" id='template-Log'>
+</script>	
+<script type="text/x-template" id='template-Report-Filter'>
+	<fieldset>
+        <legend>Filter</legend>
+        <div class="row form-group form-group-sm">
+            <div class="col-md-2">Provice</div>
+            <div class="col-md-4"><select class="form-control input-sm" id="cboPROGRAM_ID"></select></div>
+			<div class="col-md-2 control-label">Unit type</div>
+       		<div class="col-md-4"><select class="form-control input-sm" id="cboGROUP_ID" style="width:100%;" ></select></div>
+        </div>
+    </fieldset>
+</script>
+<script type="text/x-template" id='template-Report'>
+<fieldset>
+        <legend>REPORT MANAGEMENT</legend>
+        <div class="row form-group required">
+            <div class="col-md-2 control-label">Report code</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtREPORT_CODE" title="">
+            </div>
+            <div class="col-md-2 control-label">Report name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtREPORT_NAME" title="" >
+            </div>
+        </div>
+		
+		<div class="row form-group required">
+            <div class="col-md-2 control-label">Subject</div>
+            <div class="col-md-10"><input class="form-control input-sm" id="txtREPORT_HEADER" title="">
+            </div>
+            
+        </div>
+        <div class="row form-group required">
+            <div class="col-md-2 control-label">Report type</div>
+            <div class="col-md-4">
+            	<select id="cboREPORTTYPE" class="form-control input-sm">
+					<option value="1">Loại 1</option>
+					<option value="2">Loại 2</option>
+				</select>
+            </div>
+			<div class="col-md-2">Report stage</div>
+            <div class="col-md-4">
+				<select class="form-control input-sm" id="cboSTATUS">
+					<option value="0">Designing</option>
+					<option value="1">Incomplice</option>
+					<option value="2">Using</option>
+				</select>
+			</div>
+        </div>
+		<div class="row form-group required">
+			<div class="col-md-2 control-label">Alias</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtALIAS" title="">
+            </div>
+            <div class="col-md-2 control-label">Path</div>
+            <div class="col-md-4">
+            	<div class="col-md-4"><input class="form-control input-sm" id="txtREPORT_PATH" title="">
+            </div>
+        </div>
+    </fieldset>
+</script>
+<script type="text/x-template" id='template-FunctionGroup-Filter'>
+	<fieldset>
+        <legend>Module Filter</legend>
+        <div class="row form-group form-group-sm">
+            <div class="col-md-2">Module</div>
+            <div class="col-md-4"><select class="form-control input-sm" name="cboMODULE_ID"  id="cboMODULE_ID" disabled></select></div>
+        </div>
+    </fieldset>
+</script>
+<script type="text/x-template" id='template-FunctionGroup'>
+	<fieldset>
+        <legend>FUNCTION GROUP MANAGEMENT</legend>
+        <div class="row form-group required">
+			<div class="col-md-2 control-label">Group Name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtFUNCTION_GROUP_NAME" name="txtFUNCTION_GROUP_NAME" title="" ></div>
+            <div class="col-md-2 control-label"Note</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtNOTE" name="txtNOTE" title="" ></div>
+        </div>
+		
+		<div class="row form-group required">			
+            <div class="col-md-6"><label class="control-label">Note:</label> item required to input information</div>
+            <div class="col-md-6"> </div>
+        </div>
+    </fieldset>
+</script>
+<script type="text/x-template" id='template-Function-Filter'>
+	<fieldset>
+        <legend>Group Filter</legend>
+        <div class="row form-group form-group-sm">
+            <div class="col-md-2">Group</div>
+            <div class="col-md-4"><select class="form-control input-sm" name="cboFUNC_GROUP_ID"  id="cboFUNC_GROUP_ID"></select></div>
+        </div>
+    </fieldset>
+</script>
+<script type="text/x-template" id='template-Function'>
+	<fieldset>
+        <legend>FUNCTION MANAGER</legend>
+        <div class="row form-group required">
+			<div class="col-md-2 control-label">Function Name (Vietnamese)</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtCAPTION_VN" name="txtCAPTION_VN" title="" ></div>
+            <div class="col-md-2 control-label">Function Name (English)</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtCAPTION" name="txtCAPTION" title="" ></div>
+		 </div>		
+		<div class="row form-group required">	
+			<div class="col-md-2 control-label">Link</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtFUNCTION_LINK" name="txtFUNCTION_LINK"  title="" ></div>
+            <div class="col-md-2 control-label">Note</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtNOTE" name="txtNOTE" title="" ></div>
+		 </div>		
+		<div class="row form-group required">	
+			<div class="col-md-2 control-label">Escape</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtESCAPE" name="txtESCAPE" title=""  disabled></div>
+        </div>		
+		<div class="row form-group required">			
+            <div class="col-md-6"><label class="control-label">Note:</label> item required to input information</div>
+            <div class="col-md-6"> </div>
+        </div>
+    </fieldset>
+</script>
+<script type="text/javascript">
+	var opt=[];
+	var hospital_id = '{hospital_id}';
+    var user_id = '{user_id}';
+    var user_type = '{user_type}';
+    console.log('hospital_id='+hospital_id+' user_type='+user_type);
+	var session_par=[];
+	session_par[0]=hospital_id;
+	session_par[1]=user_id;
+	session_par[2]=user_type;
+	var table_name='{table}';
+	var lang = 'en';	
+</script>
+<script type="text/javascript" src="../dynform/ListMgrDataEx_en.js"></script>
+<script>
+function loadDefinition(_key) {
+	//create table ctl_dynform (key_name VARCHAR2(50),ctl_data VARCHAR2(2000));
+	var data_ar = jsonrpc.AjaxJson.ajaxExecuteQuery("select ctl_data from ctl_dynform where key_name='"+_key+"'");
+	var ctl=data_ar[0][0];
+	console.log('ctl='+ctl);
+	try {
+	opt[_key]=$.parseJSON(ctl);
+	} catch(err) {
+		alert('err='+err.message);
+	}
+}
+
+	initRest();
+	
+	
+	//loadDefinition(table_name);
+	var _opts=opt[table_name];
+	var listMgr = new CListMgr(_opts);
+	listMgr.load();
+</script>

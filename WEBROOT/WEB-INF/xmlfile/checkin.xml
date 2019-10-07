@@ -1,0 +1,47 @@
+<Data>
+	<Header>
+		<Message_Version>1.0</Message_Version>
+		<Sender_Code></Sender_Code>
+		<Sender_Name></Sender_Name>
+		<Transaction_Type></Transaction_Type>
+		<Transaction_Name></Transaction_Name>
+		<Transaction_Date></Transaction_Date>
+		<Transaction_ID></Transaction_ID>
+		<Request_ID></Request_ID>
+	</Header>
+	<Body>
+		  <CHECKIN>
+			<MA_LK></MA_LK>
+			<MABENHVIEN></MABENHVIEN>
+			<MA_THE></MA_THE>
+			<MA_KCBBD></MA_KCBBD>
+			<HO_TEN></HO_TEN>
+			<NGAY_SINH></NGAY_SINH>
+			<NAM_SINH></NAM_SINH>
+			<GIOI_TINH></GIOI_TINH>
+			<DIA_CHI></DIA_CHI>
+			<TU_NGAY></TU_NGAY>
+			<DEN_NGAY></DEN_NGAY>
+			<MATINHQUANHUYEN></MATINHQUANHUYEN>
+			<NGAYGIOVAO></NGAYGIOVAO>
+			<NGAYDU5NAM></NGAYDU5NAM>
+			<MA_NOICHUYENDEN></MA_NOICHUYENDEN>
+			<LYDODENKHAM></LYDODENKHAM>
+			<TINHTRANGVAOVIEN></TINHTRANGVAOVIEN>
+			<SOKHAMBENH></SOKHAMBENH>
+			<SODIENTHOAI_LH></SODIENTHOAI_LH>
+			<NGUOILIENHE></NGUOILIENHE>
+			<MA_KHUVUC></MA_KHUVUC>
+			<TRANG_THAI></TRANG_THAI>
+		  </CHECKIN>
+		  <Error>
+			 <Error_Number></Error_Number>
+			 <Error_Message></Error_Message>
+		  </Error>
+
+	</Body>
+	<Security>
+		<Signature>
+		</Signature>
+	</Security>
+</Data>

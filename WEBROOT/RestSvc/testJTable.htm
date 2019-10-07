@@ -1,0 +1,251 @@
+<script type="text/javascript" src="../common/script/main.js"></script>
+<script type="text/javascript" src="{menuJS}"></script>
+<input type="hidden" name="company_id" id="company_id" value="{company_id}" />
+<input type="hidden" name="user_id" id="user_id" value="{user_id}" />
+<script type="text/javascript" src="../common/script/RestService.js" ></script>
+<script type="text/javascript" src="../common/script/dbForm.js" ></script>
+<script type="text/javascript" src="../common/script/dbToolbar.js" ></script>
+<script type="text/javascript" src="../common/script/DataValidator.js" ></script>
+<script type="text/javascript" src="../common/script/CommonUtil.js" ></script>
+<script type="text/javascript" src="../common/script/jquery/jquery.toaster.js" ></script>
+<script type="text/javascript" src="../common/script/jsdatetime/Scripts/DateTimePicker.js"></script>
+<script type="text/javascript" src="../common/script/jquery.tableExport/tableExport.js"></script>
+<script type="text/javascript" src="../common/script/jquery.tableExport/jquery.base64.js"></script>
+       
+           
+<script src="../common/script/jqueryui/jquery-ui.1.9.1.js"></script>
+
+<!-- 
+
+<link rel="stylesheet" type="text/css" media="screen" href="../common/script/jquery.combogrid/jquery-ui-1.10.1.custom.css"/>
+ -->
+<link href="../common/script/jqueryui/jquery-ui-redmond.1.9.1.css" rel="stylesheet"/> 
+<link rel="stylesheet" type="text/css" media="screen" href="../common/script/jquery.combogrid/jquery.ui.combogrid.css"/>
+<script type="text/javascript" src="../common/script/jquery.combogrid/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../common/script/jquery.combogrid/jquery-ui-1.10.1.custom.min.js"></script>
+<script type="text/javascript" src="../common/script/jquery/jquery.xml2json.js"></script>
+<script type="text/javascript" src="../common/script/jquery/jquery.soap.js"></script>
+<script type="text/javascript" src="../common/script/WSPortal.js"></script>
+
+<script src="../common/script/jquery.combogrid/jquery.ui.combogrid-1.6.3.js"></script>
+<link href="../common/script/jqgrid/css/ui.jqgrid.css" rel="stylesheet"/>           
+<script src="../common/script/jqgrid/js/i18n/grid.locale-vi.js"></script>            
+<script src="../common/script/jqgrid/js/jquery.jqGrid.min.js"></script>
+
+<script type="text/javascript" src="../common/script/UIUtil.js" ></script>
+
+<div  width="100%"  id="divMain" class="container">
+<div style="float:left"><input size="30" id="cbicd"/></div><br/>&nbsp;<br/>
+   <div id="divFilter" style="width: 100%; display: block">
+	</div>	
+    <div id="divContent" style="width: 100%; display: block">
+	</div>	
+    <div class="row">
+            <div class="col-md-4">
+                 <div id="custom_toolbar" align="left"></div>
+             </div>
+             <div class="col-md-8" align="left">
+ 				<div id="db_toolbar" > </div>
+			</div>
+    </div>
+     <div class="row">
+            <div class="col-md-12">
+            	<table id="gridInfo"></table><div id="pager_gridInfo"></div>
+          	</div>
+    </div>
+</div>
+
+<script type="text/javascript">
+	var opt=[];
+	var hospital_id = '{hospital_id}';
+    var user_id = '{user_id}';
+    var user_type = '{user_type}';
+    var province_id = '{province_id}';
+    var lang= "vi";
+    console.log('hospital_id='+hospital_id+' user_type='+user_type);
+	var session_par=[];
+	session_par[0]=hospital_id;
+	session_par[1]=user_id;
+	session_par[2]=user_type;
+	session_par[3]=province_id;
+	var table_name='{table}';
+	initRest();
+</script>
+<script type="text/javascript">
+
+    var cachedCityOptions = null;
+
+    $(document).ready(function () {
+
+        $('#StudentTableContainer').jtable({
+            title: 'Student List',
+            paging: true,
+            pageSize: 10,
+            sorting: true,
+            multiSorting: true,
+            defaultSorting: 'Name ASC',
+            actions: {
+                listAction: function (postData, jtParams) {
+                    console.log("Loading from custom function...");
+                    return $.Deferred(function ($dfd) {
+                        $.ajax({
+                            url: '/Demo/StudentList?jtStartIndex=' + jtParams.jtStartIndex + '&jtPageSize=' + jtParams.jtPageSize + '&jtSorting=' + jtParams.jtSorting,
+                            type: 'POST',
+                            dataType: 'json',
+                            data: postData,
+                            success: function (data) {
+                                $dfd.resolve(data);
+                            },
+                            error: function () {
+                                $dfd.reject();
+                            }
+                        });
+                    });
+                },
+                deleteAction: function (postData) {
+                    console.log("deleting from custom function...");
+                    return $.Deferred(function ($dfd) {
+                        $.ajax({
+                            url: '/Demo/DeleteStudent',
+                            type: 'POST',
+                            dataType: 'json',
+                            data: postData,
+                            success: function (data) {
+                                $dfd.resolve(data);
+                            },
+                            error: function () {
+                                $dfd.reject();
+                            }
+                        });
+                    });
+                },
+                createAction: function (postData) {
+                    console.log("creating from custom function...");
+                    return $.Deferred(function ($dfd) {
+                        $.ajax({
+                            url: '/Demo/CreateStudent',
+                            type: 'POST',
+                            dataType: 'json',
+                            data: postData,
+                            success: function (data) {
+                                $dfd.resolve(data);
+                            },
+                            error: function () {
+                                $dfd.reject();
+                            }
+                        });
+                    });
+                },
+                updateAction: function (postData) {
+                    console.log("updating from custom function...");
+                    return $.Deferred(function ($dfd) {
+                        $.ajax({
+                            url: '/Demo/UpdateStudent',
+                            type: 'POST',
+                            dataType: 'json',
+                            data: postData,
+                            success: function (data) {
+                                $dfd.resolve(data);
+                            },
+                            error: function () {
+                                $dfd.reject();
+                            }
+                        });
+                    });
+                }
+            },
+            fields: {
+                StudentId: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                Name: {
+                    title: 'Name',
+                    width: '23%'
+                },
+                EmailAddress: {
+                    title: 'Email address',
+                    list: false
+                },
+                Password: {
+                    title: 'User Password',
+                    type: 'password',
+                    list: false
+                },
+                Gender: {
+                    title: 'Gender',
+                    width: '13%',
+                    options: { 'M': 'Male', 'F': 'Female' }
+                },
+                CityId: {
+                    title: 'City',
+                    width: '12%',
+                    options: function () {
+
+                        if (cachedCityOptions) { //Check for cache
+                            return cachedCityOptions;
+                        }
+
+                        var options = [];
+
+                        $.ajax({ //Not found in cache, get from server
+                            url: '/Demo/GetCityOptions',
+                            type: 'POST',
+                            dataType: 'json',
+                            async: false,
+                            success: function (data) {
+                                if (data.Result != 'OK') {
+                                    alert(data.Message);
+                                    return;
+                                }
+
+                                options = data.Options;
+                            }
+                        });
+
+                        return cachedCityOptions = options; //Cache results and return options
+                    }
+                },
+                BirthDate: {
+                    title: 'Birth date',
+                    width: '15%',
+                    type: 'date',
+                    displayFormat: 'yy-mm-dd'
+                },
+                Education: {
+                    title: 'Education',
+                    list: false,
+                    type: 'radiobutton',
+                    options: { '1': 'Primary school', '2': 'High school', '3': 'University' }
+                },
+                About: {
+                    title: 'About this person',
+                    type: 'textarea',
+                    list: false
+                },
+                IsActive: {
+                    title: 'Status',
+                    width: '12%',
+                    type: 'checkbox',
+                    values: { 'false': 'Passive', 'true': 'Active' },
+                    defaultValue: 'true'
+                },
+                RecordDate: {
+                    title: 'Record date',
+                    width: '15%',
+                    type: 'date',
+                    displayFormat: 'yy-mm-dd',
+                    create: false,
+                    edit: false,
+                    sorting: false //This column is not sortable!
+                }
+            }
+        });
+
+        //Load student list from server
+        $('#StudentTableContainer').jtable('load');
+    });
+
+</script>

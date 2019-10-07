@@ -1,0 +1,78 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Hệ thống quản lý hạ tầng mạng Cáp</title>
+<script type="text/javascript" src="{ROOT}/common/script/jquery/jquery-3.0.0.min.js"></script>
+<script type="text/javascript" src="{ROOT}/common/script/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="{ROOT}/common/script/bootstrap/bootstrap-tab.js"></script>
+<script type="text/javascript" src="{ROOT}/common/script/bootstrap/bootstrap-button.js"></script>
+<link rel="stylesheet" href="{ROOT}/common/script/bootstrap/css/bootstrap.min.css">
+
+<script type="text/javascript" src="../common/script/jquery/jquery.storageapi.js"></script>
+<script type="text/javascript" src="../common/script/jquery.i18n/jquery.i18n.js"></script>
+<script type="text/javascript" src="../common/script/jquery.i18n/jquery.i18n.messagestore.js"></script>
+<script type="text/javascript" src="../common/i18n/i18n-ims.js"></script>
+
+<link rel="stylesheet" href="{ROOT}/common/css/custom.css">
+<link rel="stylesheet" href="{ROOT}/common/css/banner.css" />
+<link rel="stylesheet" href="{ROOT}/common/css/animate.css">    
+<link rel="stylesheet" href="{ROOT}/common/css/css_style.css">
+<script type="text/javascript" src="../common/script/jquery/toggles.min.js"></script>
+<link rel="stylesheet" href="{ROOT}/common/css/font-awesome.min.css">
+<link rel="stylesheet" href="{ROOT}/common/css/responsive.css" />
+<!-- <link rel="stylesheet" href="../common/css/hportal-style.css"> -->
+<script type="text/javascript" src="{ROOT}/common/script/common.js"></script>
+<script type="text/javascript" src="{ROOT}/common/script/menu/menubar.js"></script>
+<script type="text/javascript">
+var session_id = '{session_id}';
+var lang='{lang}';
+if (lang=='en') {
+	document.title = "Cable Infastructure Management System";	
+}
+var menuObject=new CMenuMgr("menuObj");
+menuObject.loadMenu("{ROOT}/common/script/menu/UserMenuFile.js");
+</script>
+</head>
+<div class="icon_menu"></div>
+<section class="sec-all blue-color">
+	<div class="banner {lang}" style="z-index: 999">
+		<div id="language-changer" class="pointer language-changer {lang}" onclick="changeLanguage('{lang}')"></div>		
+		<div class="avatar">user_name <i class="fa fa-sort-desc"></i>
+			<div class="content-dropdown">
+			<ul style="list-style-type: none;">
+				<li id="101">
+					<a href="/QLHT/login/login.jsp"><i class="icon-cog"></i> Đăng xuất</a>
+				</li>
+				<li id="102">
+					<a href="/QLHT/main/manager.jsp?func=../QLHT/changePassword"><i class="icon-cog"></i> Đổi mật khẩu</a>
+				</li>
+			</ul>
+		</div>
+				
+		</div>		
+	     <div class="blue-menu">	    		
+		<div class="header_menu">
+			<div class="block_menu">				
+				<div class="menu" id="menuObj">						
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+</section>
+<body>
+<div class="page-wrap">
+{content}
+</div>
+<footer class="sec-all footer site-footer">
+ <div class="container"> 
+	<div class="footer-left {lang}">     
+     </div>
+     <!-- <div class="footer-right {lang}">          
+     </div> -->
+    </div>
+</footer>
+</body>
+</html> 

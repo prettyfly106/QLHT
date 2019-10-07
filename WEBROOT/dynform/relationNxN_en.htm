@@ -1,0 +1,96 @@
+<script type="text/javascript" src="../common/script/main.js"></script>
+<script type="text/javascript" src="{menuJS}"></script>
+<input type="hidden" name="company_id" id="company_id" value="{company_id}" />
+<input type="hidden" name="user_id" id="user_id" value="{user_id}" />
+<script type="text/javascript" src="../common/script/RestService.js" ></script>
+<script type="text/javascript" src="../common/script/dbForm.js" ></script>
+<script type="text/javascript" src="../common/script/dbToolbar.js" ></script>
+<script type="text/javascript" src="../common/script/DataValidator.js" ></script>
+<script type="text/javascript" src="../common/script/CommonUtil.js" ></script>
+<script type="text/javascript" src="../common/script/jsdatetime/Scripts/DateTimePicker.js"></script>
+<script type="text/javascript" src="../common/script/moment.min.js"></script>
+<!-- <link rel="stylesheet" href="../common/script/bootstrap/css/bootstrap.css"> -->
+<link rel="stylesheet" href="../common/css/custom.css">
+       
+<link href="../common/script/jqueryui/jquery-ui-redmond.1.9.1.css" rel="stylesheet"/>           
+<script src="../common/script/jqueryui/jquery-ui.1.9.1.js"></script>
+
+<link href="../common/script/jqgrid/css/ui.jqgrid.css" rel="stylesheet"/>           
+<script src="../common/script/jqgrid/js/i18n/grid.locale-vi.js"></script>            
+<script src="../common/script/jqgrid/js/jquery.jqGrid.min.js"></script>
+
+<script type="text/javascript" src="../common/script/UIUtil.js" ></script>
+<script type="text/javascript" src="../dynform/relationNxN.js"></script>
+<div  width="100%"  id="managePriv" class="container">
+	<div class="row">
+            <div class="col-md-12">
+            	<label id="lblTitle" ></label>
+          	</div>
+          	
+    </div>
+	
+    <div class="row" style="margin-bottom:5px;">
+            <div class="col-md-3">
+            	<span id="lblParentL" >User Group:</span>
+            	<select id="cboParentL" class="form-control input-sm" style="width: 100%; " ></select>
+            	<div style="margin-top:5px;">
+            		<table id="gridLeft" style="width:100%;" ></table><div id="pager_gridLeft"></div>
+            	</div>		
+          	</div>
+          	<div class="col-md-9">
+          		<span id="lblParentR" >Telecommunication center:</span>
+            	<select id="cboParentR" class="form-control input-sm" style="width: 100%" ></select>
+            	<div class="row" style="margin-top:5px;">            	
+		            <div class="col-xs-5">
+		            	<table id="gridCenter"></table><div id="pager_gridCenter"></div>			
+		          	</div>
+		          	<div class="col-xs-2 text-center" >
+		          		<div class="row" style="margin-top:5px;">
+		            		<div class="col-md-12">
+		            			<button id="btnInsert" type="button" class="btn btn-primary" aria-label="Center Align" >
+		  							<span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
+								</button>
+		          			</div>
+		            	</div>	
+		          		<div class="row">
+		            		<div class="col-md-12">
+		            			<button id="btnDelete" type="button" class="btn btn-primary" aria-label="Center Align" >
+		  							<span class="glyphicon glyphicon-forward" aria-hidden="true"></span>
+								</button>
+		          			</div>
+		            	</div>	
+		            	
+		            			
+		          	</div>
+		          	<div class="col-xs-5">
+		            	<table id="gridRight"></table><div id="pager_gridRight"></div>	
+		          	</div>
+	          	</div>
+          	</div>          	
+    </div>
+</div>
+
+
+<input type="hidden" name="company_id" id="company_id" value="{company_id}" />
+<input type="hidden" name="center_id" id="center_id" value="{center_id}" />
+<input type="hidden" name="team_id" id="team_id" value="{team_id}" />
+<input type="hidden" name="center_id" id="center_id" value="{center_id}" />
+<input type="hidden" name="user_id" id="user_id" value="{user_id}" />
+
+
+<script>
+window.onerror = function (msg, url, line) {
+	//window.status ="Message : " + msg + " url : " + url + " Line number : " + line;
+	alert("Message : " + msg + " url : " + url + " Line number : " + line);
+}
+var PROGRAM_ID='{pid}';
+var tableName='{table}';
+if(tableName=="") {
+	tableName="DR_REPORT_GRANT";
+}
+if(PROGRAM_ID=='') {
+	PROGRAM_ID='1';
+}
+var relNxN = new relationNxN(tableName,PROGRAM_ID);
+
+</script>

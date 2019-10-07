@@ -1,0 +1,87 @@
+<script type="text/javascript" src="../common/script/main.js"></script>
+<script type="text/javascript" src="{menuJS}"></script>
+<input type="hidden" name="company_id" id="company_id" value="{company_id}" />
+<input type="hidden" name="user_id" id="user_id" value="{user_id}" />
+<script type="text/javascript" src="../common/script/RestService.js" ></script>
+<script type="text/javascript" src="../common/script/dbForm.js" ></script>
+<script type="text/javascript" src="../common/script/dbToolbar.js" ></script>
+<script type="text/javascript" src="../common/script/DataValidator.js" ></script>
+<script type="text/javascript" src="../common/script/CommonUtil.js" ></script>
+<script type="text/javascript" src="../common/script/jquery/jquery.toaster.js" ></script>
+<script type="text/javascript" src="../common/script/jsdatetime/Scripts/DateTimePicker.js"></script>
+<script type="text/javascript" src="../common/script/jquery.tableExport/tableExport.js"></script>
+<script type="text/javascript" src="../common/script/jquery.tableExport/jquery.base64.js"></script>
+<script src="../common/script/select2/select2.full.js"></script>
+<script src="../common/script/select2/i18n/vi.js"></script>
+<link href="../common/script/select2/select2.min.css" rel="stylesheet"/>
+
+       
+<link href="../common/script/jqueryui/jquery-ui-redmond.1.9.1.css" rel="stylesheet"/>           
+<script src="../common/script/jqueryui/jquery-ui.1.9.1.js"></script>
+
+<link href="../common/script/jqgrid/css/ui.jqgrid.css" rel="stylesheet"/>           
+<script src="../common/script/jqgrid/js/i18n/grid.locale-vi.js"></script>            
+<script src="../common/script/jqgrid/js/jquery.jqGrid.src.js"></script>
+
+<script type="text/javascript" src="../common/script/UIUtil.js" ></script>
+<script type="text/javascript" src="../dynform/ListMgrEx.js"></script>
+
+<div  width="100%"  id="divMain" class="container">
+	
+    <div id="divContent" style="width: 100%; display: block">
+	</div>	
+    <div class="row">
+            <div class="col-md-4">
+                 <div id="custom_toolbar" align="left"></div>
+             </div>
+             <div class="col-md-8" align="left">
+ 				<div id="db_toolbar" > </div>
+			</div>
+    </div>
+     <div class="row">
+            <div class="col-md-12">
+            	<table id="gridInfo"></table><div id="pager_gridInfo"></div>
+          	</div>
+    </div>
+</div>
+
+<script type="text/javascript">
+	var opt=[];
+	var hospital_id = '{hospital_id}';
+    var user_id = '{user_id}';
+    var user_type = '{user_type}';
+    var province_id = '{province_id}';
+    var dept_name = '{dept_name}';
+    var subdept_name = '{subdept_name}';
+    var dept_id = '{dept_id}';
+    var subdept_id = '{subdept_id}';
+    var db_name = '{db_name}';
+    var db_schema = '{db_schema}';
+    var lang= "{lang}";
+    if(lang=='') lang='vn';
+    console.log('hospital_id='+hospital_id+' user_type='+user_type);
+	var session_par=[hospital_id,user_id,user_type,province_id,db_name,db_schema];
+	var table_name='{table}';
+</script>
+<!-- 
+<script type="text/javascript" src="../dynform/ListMgrDataEx.js"></script>
+ -->
+<script>
+	initRest();
+	//loadDefinition(table_name);
+	(function () {
+		loadAsync('../dynform/ListMgrEx/'+table_name+'.js', function(){
+			//console.log('loadAsync='+table_name+' lang='+lang+' _opts='+JSON.stringify(_opts));			
+		    _opts[lang]._param=session_par;
+			var listMgr = new CListMgr(_opts[lang]);
+			listMgr.load();
+	    });
+	})();
+	var mode = '{showMode}';
+
+    //var objVar;
+    if(mode=='dlg') {
+     parent.DlgUtil.tunnel(DlgUtil.moveEvent);
+     //objVar=EventUtil.getVar("dlgVar");    
+    }
+</script>

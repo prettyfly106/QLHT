@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Baocao_XuatThuoc_BHYT" pageWidth="2380" pageHeight="1684" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="2340" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="aa88c9ab-d0a7-4edf-980c-ee975d78c89e">
+	<property name="ireport.zoom" value="0.9090909090909096"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="541"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="tungay" class="java.util.Date"/>
+	<parameter name="denngay" class="java.util.Date"/>
+	<parameter name="ora_cursor" class="java.sql.ResultSet" isForPrompting="false"/>
+	<parameter name="dvtt" class="java.lang.String"/>
+	<parameter name="nguoilapbaocao" class="java.lang.String"/>
+	<parameter name="ngay" class="java.lang.String"/>
+	<parameter name="thang" class="java.lang.String"/>
+	<parameter name="nam" class="java.lang.String"/>
+	<parameter name="benhvientuyentren" class="java.lang.String"/>
+	<parameter name="tenbenhvien" class="java.lang.String"/>
+	<queryString language="plsql">
+		<![CDATA[{call his_ytcs.so_theodoi_xuatthuoc_bhyt($P{tungay},$P{denngay},$P{dvtt},$P{ora_cursor})}]]>
+	</queryString>
+	<field name="ID_TIEPNHAN" class="java.lang.String"/>
+	<field name="MA_KHAM_BENH" class="java.lang.String"/>
+	<field name="STT" class="java.lang.Integer"/>
+	<field name="NGAYTHANG" class="java.lang.String"/>
+	<field name="HOTEN" class="java.lang.String"/>
+	<field name="TUOI" class="java.lang.Short"/>
+	<field name="SOTHE" class="java.lang.String"/>
+	<field name="GIOITINH" class="java.lang.String"/>
+	<field name="DIACHI" class="java.lang.String"/>
+	<field name="MOTABL" class="java.lang.String"/>
+	<field name="VATTU1" class="java.lang.String"/>
+	<field name="SOLUONG" class="java.lang.Integer"/>
+	<variable name="count_report" class="java.lang.Integer" incrementType="Group" incrementGroup="count" calculation="Count">
+		<variableExpression><![CDATA[$V{count_COUNT}]]></variableExpression>
+	</variable>
+	<group name="count">
+		<groupExpression><![CDATA[$F{NGAYTHANG}+$F{HOTEN}+$F{TUOI}+$F{GIOITINH}+$F{SOTHE}+$F{DIACHI}+$F{MOTABL}]]></groupExpression>
+	</group>
+	<title>
+		<band height="162" splitType="Stretch">
+			<staticText>
+				<reportElement x="84" y="80" width="463" height="34" uuid="dc5fe2bf-8e1b-4d26-8a02-aef386ecc270"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SỔ THEO DÕI XUẤT THUỐC BẢO HIỂM Y TẾ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="163" y="119" width="27" height="20" uuid="a779b8a0-2228-4a82-8551-6c0914fe81e0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TỪ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="306" y="119" width="36" height="20" uuid="e271cd08-f05a-4c30-b524-8cbdeaa3e49d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ĐẾN]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="190" y="119" width="71" height="20" uuid="21971b4a-2b9c-4dfa-b647-ebe84bc70fad"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tungay}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="342" y="119" width="88" height="20" uuid="0587e984-aa07-4f59-9ef4-4bcb1d5935f2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{denngay}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="569" height="30" uuid="2dc781db-8b72-460f-8dcc-4935603792e4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{benhvientuyentren}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="42" width="569" height="17" uuid="6538a383-65a0-4ddb-9a07-3f853f01cca5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tenbenhvien}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<lastPageFooter>
+		<band height="168">
+			<staticText>
+				<reportElement x="505" y="96" width="146" height="20" uuid="1412b001-5979-4a93-bad1-7b9979b973b2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Trạm Trưởng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="478" y="63" width="37" height="20" uuid="91bc13f7-d0af-44ff-9952-62be773729d3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Ngày]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="543" y="63" width="35" height="20" uuid="747cc99a-580c-4a4d-bf0e-88e05230f5d9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Tháng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="618" y="63" width="33" height="20" uuid="97c8465b-fae6-49a0-8fdb-41fcff839e2c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Năm]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="515" y="63" width="27" height="20" uuid="f6772833-d5e6-4a48-9ff7-69cf2b1dc4e8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ngay}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="578" y="63" width="40" height="20" uuid="6420341c-2b61-42ea-95f1-a3c8471e2d46"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{thang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="651" y="63" width="30" height="20" uuid="ddecaab6-cadd-47dd-9d2a-a2da8bb92b67"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nam}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="220" y="99" width="146" height="20" uuid="0c4950b5-8b76-46ac-92c1-724bb42fbe26"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cán bộ dự kiểm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="99" width="146" height="20" uuid="bc7c745f-0ef3-42b4-a102-2be39035e4a4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Thủ kho]]></text>
+			</staticText>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band height="198" splitType="Stretch">
+			<crosstab>
+				<reportElement style="Crosstab Data Text" x="0" y="0" width="2340" height="198" uuid="b6276666-c1fb-419b-8f7e-bd41adefb599"/>
+				<crosstabHeaderCell>
+					<cellContents>
+						<staticText>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="670" height="30" uuid="20e9e6c0-9b61-40e5-bfbd-55dc0db1e497"/>
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Times New Roman" isBold="true"/>
+							</textElement>
+							<text><![CDATA[Thông tin xuất thuốc BHYT]]></text>
+						</staticText>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="NGAYTHANG" width="70" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{NGAYTHANG}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#F5F5DC" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="70" height="25" uuid="72edf87a-b37d-4117-8658-a4462b2f70cc"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Times New Roman"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{NGAYTHANG}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents backcolor="#FFFFBF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<staticText>
+								<reportElement x="0" y="0" width="670" height="25" uuid="3d11900a-e65b-4d3b-91bb-8f6e995ff9b4"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Times New Roman"/>
+								</textElement>
+								<text><![CDATA[Tổng]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="HOTEN" width="100">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{HOTEN}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents>
+							<textField>
+								<reportElement style="Crosstab Data Text" positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="100" height="25" uuid="92a1db58-6ecd-4726-9934-f3b6a0fb29d4"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Times New Roman"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{HOTEN}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="TUOI" width="100">
+					<bucket class="java.lang.Short">
+						<bucketExpression><![CDATA[$F{TUOI}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents>
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="100" height="25" uuid="f33a2759-b797-4308-a153-0114b0794f3f"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Times New Roman"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{TUOI}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="GIOITINH" width="100">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{GIOITINH}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents>
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="100" height="25" uuid="0d0c17c4-63ba-4b3c-88d7-b013e0a79e3d"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Times New Roman"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{GIOITINH}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="SOTHE" width="100">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{SOTHE}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents>
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="100" height="25" uuid="08d46401-868e-4a44-a476-c60142cc6916"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Times New Roman"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{SOTHE}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="DIACHI" width="100">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{DIACHI}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents>
+							<textField>
+								<reportElement style="Crosstab Data Text" positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="100" height="25" uuid="29f86825-055f-487d-96ab-4c299dd97a42"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Times New Roman"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{DIACHI}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<rowGroup name="MOTABL" width="100">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{MOTABL}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents>
+							<textField>
+								<reportElement style="Crosstab Data Text" positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="100" height="25" uuid="1fcfa20b-443b-444d-80a8-64798c660a9e"/>
+								<box>
+									<pen lineWidth="0.5"/>
+									<topPen lineWidth="0.5"/>
+									<leftPen lineWidth="0.5"/>
+									<bottomPen lineWidth="0.5"/>
+									<rightPen lineWidth="0.5"/>
+								</box>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Times New Roman"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{MOTABL}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents/>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="VATTU1" height="30">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{VATTU1}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#F5F5DC" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement style="Crosstab Data Text" positionType="Float" stretchType="RelativeToBandHeight" x="0" y="0" width="50" height="30" uuid="5781c43d-0fed-43ba-94d4-12473296ecf7"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="Times New Roman" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{VATTU1}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents/>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="SOLUONGMeasure" class="java.lang.Integer" calculation="Sum">
+					<measureExpression><![CDATA[$F{SOLUONG}]]></measureExpression>
+				</measure>
+				<crosstabCell width="50" height="25">
+					<cellContents>
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField isBlankWhenNull="true">
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" uuid="5f6ac2bb-811b-44af-8a6e-27c1fe44cfc4"/>
+							<box>
+								<pen lineWidth="0.5"/>
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
+								<rightPen lineWidth="0.5"/>
+							</box>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Times New Roman"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{SOLUONGMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell height="25" rowTotalGroup="NGAYTHANG">
+					<cellContents backcolor="#FFFFBF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" uuid="69640ac7-32fc-4988-b55f-5345c499effb"/>
+							<textElement verticalAlignment="Middle">
+								<font fontName="Times New Roman"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{SOLUONGMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="50" columnTotalGroup="VATTU1">
+					<cellContents backcolor="#FFFFBF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" uuid="ef0d0825-8dbe-42fa-82f0-349eda99598f"/>
+							<textFieldExpression><![CDATA[$V{SOLUONGMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="NGAYTHANG" columnTotalGroup="VATTU1">
+					<cellContents backcolor="#FFFFBF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="50" height="25" uuid="fc67eed8-aec2-4a2b-82c9-6b63bbd5cf5f"/>
+							<textFieldExpression><![CDATA[$V{SOLUONGMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="HOTEN">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="HOTEN" columnTotalGroup="VATTU1">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="TUOI">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="TUOI" columnTotalGroup="VATTU1">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="GIOITINH">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="GIOITINH" columnTotalGroup="VATTU1">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="SOTHE">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="SOTHE" columnTotalGroup="VATTU1">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="DIACHI">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="DIACHI" columnTotalGroup="VATTU1">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="MOTABL">
+					<cellContents/>
+				</crosstabCell>
+				<crosstabCell rowTotalGroup="MOTABL" columnTotalGroup="VATTU1">
+					<cellContents/>
+				</crosstabCell>
+			</crosstab>
+		</band>
+	</summary>
+	<noData>
+		<band height="569">
+			<staticText>
+				<reportElement x="173" y="129" width="27" height="20" uuid="5228e320-f806-4cd0-88bb-386ccc6d003d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TỪ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="10" width="569" height="30" uuid="84ab99c8-a001-41a3-85f9-0cf70ccf9d12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{benhvientuyentren}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="316" y="129" width="36" height="20" uuid="2b254cab-9fc6-467d-8dd8-c80803fa8736"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ĐẾN]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="352" y="129" width="88" height="20" uuid="2e647c08-f17b-41e6-bd8d-9feb6b3f75f3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{denngay}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="52" width="569" height="17" uuid="24ca851f-1d23-4672-a6c7-c2e0558d16c7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tenbenhvien}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="94" y="90" width="463" height="34" uuid="e82dc746-ae27-4140-b0e7-327352278b13"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SỔ THEO DÕI XUẤT THUỐC BẢO HIỂM Y TẾ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="200" y="129" width="71" height="20" uuid="891c4416-c6cc-4139-8f6d-2b06725fea4e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tungay}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="664" y="261" width="30" height="20" uuid="1fc905d3-86c5-4586-8a4c-e57e1fcc7238"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nam}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="515" y="261" width="27" height="20" uuid="fe199380-2b04-41ec-9460-081417163bcc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ngay}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="47" y="297" width="146" height="20" uuid="f17f7741-746a-4ec5-9d28-4933645fe9c3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Thủ kho]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="478" y="261" width="37" height="20" uuid="96968392-0463-4017-b3e1-fb3b3503f740"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Ngày]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="543" y="261" width="35" height="20" uuid="edd68e12-660b-45e3-9d41-52b86e12d7ef"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Tháng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="505" y="294" width="146" height="20" uuid="cf7e648b-1fe0-4d93-921a-f9cc28ddfdaa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Trạm Trưởng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="297" width="146" height="20" uuid="49d4e242-f45c-495a-8cc3-c41f7d9cb415"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cán bộ dự kiểm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="618" y="261" width="33" height="20" uuid="0f433abd-c9ac-4faf-ab0a-13799638c791"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Năm]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="579" y="261" width="29" height="20" uuid="843779af-753b-48bc-ac73-eae5972d7a35"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{thang}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="167" width="830" height="94" uuid="a70e486c-a2b2-4d80-a6ea-2c7fe7e7f482"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dữ liệu báo cáo trong khoảng thời gian trên chưa có sẵn. Vui lòng cập nhật thông tin để xuất ra báo cáo!]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

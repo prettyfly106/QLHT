@@ -1,0 +1,411 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:web="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<description>web.xml file for Debt</description>
+
+	<context-param>
+		<param-name>db_name</param-name>
+		<param-value>jdbc/QLHTDS</param-value>
+	</context-param>
+	<context-param>
+		<param-name>db_info</param-name>
+		<param-value>jdbc/QLHTDS</param-value>
+	</context-param>
+	<context-param>
+		<param-name>capcha</param-name>
+		<param-value>false</param-value>
+	</context-param>	
+	<context-param>
+		<param-name>under_construction</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	<context-param>
+		<param-name>start_page</param-name>
+		<param-value>/main/manager.jsp?func=../QLHT/home</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>db_report17</param-name>
+		<param-value>jdbc:oracle:thin:dreport/dr@123.31.22.17:1521:db1</param-value>
+	</context-param>
+	<context-param>
+		<param-name>db_report</param-name>
+		<param-value>jdbc:oracle:thin:dreport/dr@123.31.27.51:1521:db01</param-value>
+		<!-- <param-value>jdbc:oracle:thin:dreport/dr@172.16.80.42:1521:db01</param-value> -->
+	</context-param>
+	<context-param>
+        <param-name>rpt_schema</param-name>
+        <param-value>DREPORT.</param-value>
+  </context-param>
+  <context-param>
+        <param-name>db_type</param-name>
+        <param-value>ORACLE</param-value>
+  </context-param>
+	<context-param>
+        <param-name>report_type</param-name>
+        <param-value>JasperReport</param-value>
+  </context-param>
+  
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>/WEB-INF/log4j.properties</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>log4jRefreshInterval</param-name>
+		<param-value>1000</param-value>
+	</context-param>
+	
+	
+	<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<filter> 
+	<filter-name>monitoring</filter-name>
+	<filter-class>net.bull.javamelody.MonitoringFilter</filter-class>        
+</filter>
+<filter>
+	<filter-name>ValidationFilter</filter-name>
+	<filter-class>common.filters.ValidationFilter</filter-class>
+	<init-param>
+		<param-name>loginValidPage</param-name>
+		<param-value>/login/login.jsp</param-value>
+	</init-param>
+	<init-param>
+		<param-name>loginInvalidPage</param-name>
+		<param-value>/login/login.jsp</param-value>
+	</init-param>
+	<init-param>
+		<param-name>proxyPage</param-name>
+		<param-value>/login/DetectProxy.jsp</param-value>
+	</init-param>
+	<init-param>
+		<param-name>loginPage</param-name>
+		<param-value>/login/login.jsp</param-value>
+	</init-param>
+	<init-param>
+		<param-name>expirePage</param-name>
+		<param-value>/login/expired.jsp</param-value>
+	</init-param>	
+</filter>
+<filter>
+       <filter-name>DataPagesLayoutFilter</filter-name>
+       <filter-class>common.filters.LayoutFilter</filter-class>
+       <init-param>
+           <param-name>layOutFilePath_vi</param-name>
+           <param-value>layouts/Vietnamese/DataPagesLayout.htm</param-value>
+       </init-param>
+       <init-param>
+           <param-name>layOutFilePath_en</param-name>
+           <param-value>layouts/Vietnamese/DataPagesLayout.htm</param-value>
+       </init-param>
+       <init-param>
+           <param-name>layOutFilePath_vi_800</param-name>
+           <param-value>layouts/Vietnamese/DataPagesLayout_800x600.htm</param-value>
+       </init-param>
+   </filter>        
+<filter-mapping>                
+	<filter-name>monitoring</filter-name>                
+	<url-pattern>/*</url-pattern>        
+</filter-mapping>
+
+
+<filter-mapping>
+	<filter-name>ValidationFilter</filter-name>
+	<url-pattern>/common/jsp/*</url-pattern>
+</filter-mapping>
+
+<filter-mapping>
+	<filter-name>ValidationFilter</filter-name>
+	<url-pattern>/customer/*</url-pattern>
+</filter-mapping>
+
+<filter-mapping>
+	<filter-name>ValidationFilter</filter-name>
+	<url-pattern>/control/*</url-pattern>
+</filter-mapping>
+
+	<filter-mapping>
+	<filter-name>ValidationFilter</filter-name>
+	<url-pattern>/configure/*</url-pattern>
+</filter-mapping>
+<filter-mapping>
+	<filter-name>ValidationFilter</filter-name>
+	<url-pattern>/admin/*</url-pattern>
+</filter-mapping>
+
+<filter-mapping>
+	<filter-name>ValidationFilter</filter-name>
+	<url-pattern>/main/*</url-pattern>
+</filter-mapping>
+
+<filter-mapping>
+	<filter-name>ValidationFilter</filter-name>
+	<url-pattern>/construct/*</url-pattern>
+</filter-mapping>
+
+<filter-mapping>
+	<filter-name>ValidationFilter</filter-name>
+	<url-pattern>/search/*</url-pattern>
+</filter-mapping>
+
+<filter-mapping>
+	<filter-name>ValidationFilter</filter-name>
+	<url-pattern>/Download/*</url-pattern>
+</filter-mapping>
+
+<filter-mapping>
+	<filter-name>ValidationFilter</filter-name>
+	<url-pattern>/servlet/report.*</url-pattern>
+</filter-mapping>
+<filter-mapping>
+	<filter-name>ValidationFilter</filter-name>
+	<url-pattern>/paramManager/*</url-pattern>
+</filter-mapping>
+    
+   <filter-mapping>
+       <filter-name>DataPagesLayoutFilter</filter-name>
+       <url-pattern>/admin/*</url-pattern>
+   </filter-mapping>
+   <filter-mapping>
+       <filter-name>DataPagesLayoutFilter</filter-name>
+       <url-pattern>/main/manager.jsp</url-pattern>
+   </filter-mapping>
+   <filter-mapping>
+       <filter-name>DataPagesLayoutFilter</filter-name>
+       <url-pattern>/main/index.jsp</url-pattern>
+   </filter-mapping>
+   
+    <listener>                
+	<listener-class>net.bull.javamelody.SessionListener</listener-class>        
+</listener>
+
+<servlet>
+		<servlet-name>ValidateUser</servlet-name>
+		<servlet-class>login.ValidateUser</servlet-class>
+		<init-param>
+			<param-name>loginValidPage</param-name>
+			<param-value>/login/login.jsp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>loginInvalidPage</param-name>
+			<param-value>/login/login.jsp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>proxyPage</param-name>
+			<param-value>/login/DetectProxy.jsp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>loginPage</param-name>
+			<param-value>/login/login.jsp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>expirePage</param-name>
+			<param-value>/login/expired.jsp</param-value>
+		</init-param>		
+	</servlet>
+	
+	<servlet>
+		<servlet-name>DownFileServlet</servlet-name>
+		<servlet-class>servlet.DownFileServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Logout</servlet-name>
+		<servlet-class>login.Logout</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>BuildXMLMenuFile</servlet-name>
+		<servlet-class>servlet.BuildXMLMenuFile</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>XMLMenuFile</servlet-name>
+		<servlet-class>servlet.XMLMenuFile</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>XMLTreeTable</servlet-name>
+		<servlet-class>servlet.XMLTreeTable</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AxisServlet</servlet-name>
+		<display-name>Apache-Axis Servlet</display-name>
+		<servlet-class>
+			org.apache.axis.transport.http.AxisServlet
+		</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>AdminServlet</servlet-name>
+		<display-name>Axis Admin Servlet</display-name>
+		<servlet-class>
+			org.apache.axis.transport.http.AdminServlet
+		</servlet-class>
+		<load-on-startup>100</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<servlet-name>SOAPMonitorService</servlet-name>
+		<display-name>SOAPMonitorService</display-name>
+		<servlet-class>
+			org.apache.axis.monitor.SOAPMonitorService
+		</servlet-class>
+		<init-param>
+			<param-name>SOAPMonitorPort</param-name>
+			<param-value>5001</param-value>
+		</init-param>
+		<load-on-startup>100</load-on-startup>
+	</servlet>
+	
+	<servlet>
+        <servlet-name>RestService</servlet-name>
+        <servlet-class>AjaxUtil.RestService</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AjaxService</servlet-name>
+        <servlet-class>AjaxUtil.AjaxService</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>xlsDoReportImp</servlet-name>
+        <servlet-class>report.servlet.xlsDoReportImp</servlet-class>
+    </servlet>    
+    <servlet>
+        <servlet-name>ParamBuilder</servlet-name>
+        <servlet-class>report.servlet.ParamBuilder</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>xlsReport</servlet-name>
+        <servlet-class>AjaxUtil.xlsReport</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>xlsMgr</servlet-name>
+        <servlet-class>AjaxUtil.xlsMgr</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>fileMgr</servlet-name>
+        <servlet-class>AjaxUtil.fileMgr</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>MergeXlsx</servlet-name>
+        <servlet-class>AjaxUtil.MergeXlsx</servlet-class>
+    </servlet>
+    
+    
+	<servlet>
+		<servlet-name>
+			com.metaparadigm.jsonrpc.JSONRPCServlet
+		</servlet-name>
+		<servlet-class>
+			com.metaparadigm.jsonrpc.JSONRPCServlet
+		</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	<servlet-name>ValidateUser</servlet-name>
+	<url-pattern>/servlet/login.ValidateUser</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>Logout</servlet-name>
+	<url-pattern>/servlet/login.Logout</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>DownFileServlet</servlet-name>
+	<url-pattern>/servlet/downloadFile</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>BuildXMLMenuFile</servlet-name>
+	<url-pattern>/servlet/BuildXMLMenuFile</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>XMLMenuFile</servlet-name>
+	<url-pattern>/servlet/XMLMenuFile</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>XMLTreeTable</servlet-name>
+	<url-pattern>/servlet/XMLTreeTable</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>AxisServlet</servlet-name>
+	<url-pattern>/servlet/AxisServlet</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+	<servlet-name>AxisServlet</servlet-name>
+	<url-pattern>*.jws</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+	<servlet-name>AxisServlet</servlet-name>
+	<url-pattern>/services/*</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+	<servlet-name>SOAPMonitorService</servlet-name>
+	<url-pattern>/SOAPMonitor</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>RestService</servlet-name>
+	<url-pattern>/RestService</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>AjaxService</servlet-name>
+	<url-pattern>/AjaxService</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>xlsDoReportImp</servlet-name>
+	<url-pattern>/report/xlsDoReportImp</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>ParamBuilder</servlet-name>
+	<url-pattern>/report/parameter/ParamBuilder</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>xlsReport</servlet-name>
+	<url-pattern>/report/parameter/xlsReport</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>xlsMgr</servlet-name>
+	<url-pattern>/xls/parameter/xlsMgr</url-pattern>
+</servlet-mapping> 
+<servlet-mapping>
+	<servlet-name>fileMgr</servlet-name>
+	<url-pattern>/file/parameter/fileMgr</url-pattern>
+</servlet-mapping> 
+<servlet-mapping>
+	<servlet-name>MergeXlsx</servlet-name>
+	<url-pattern>/thbc/mergeBc</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+	<servlet-name>
+		com.metaparadigm.jsonrpc.JSONRPCServlet
+	</servlet-name>
+	<url-pattern>/JSON-RPC</url-pattern>
+</servlet-mapping> 
+	
+	<mime-mapping>
+		<extension>wsdl</extension>
+		<mime-type>text/xml</mime-type>
+	</mime-mapping>
+
+
+	<mime-mapping>
+		<extension>xsd</extension>
+		<mime-type>text/xml</mime-type>
+	</mime-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>/login/login.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/common/jsp/ShowError.jsp</location>
+	</error-page>
+ 
+
+</web-app>

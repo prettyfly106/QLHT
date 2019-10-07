@@ -1,0 +1,78 @@
+<script type="text/javascript" src="../common/script/main.js"></script>
+<script type="text/javascript" src="{menuJS}"></script>
+<input type="hidden" name="company_id" id="company_id" value="{company_id}" />
+<input type="hidden" name="user_id" id="user_id" value="{user_id}" />
+<script type="text/javascript" src="../common/script/RestService.js" ></script>
+<script type="text/javascript" src="../common/script/dbForm.js" ></script>
+<script type="text/javascript" src="../common/script/dbToolbar.js" ></script>
+<script type="text/javascript" src="../common/script/DataValidator.js" ></script>
+<script type="text/javascript" src="../common/script/CommonUtil.js" ></script>
+<script type="text/javascript" src="../common/script/jsdatetime/Scripts/DateTimePicker.js"></script>
+<script type="text/javascript" src="../common/script/jquery/jquery.mask-plugin.min.js"></script>
+<script type="text/javascript" src="../common/script/moment.min.js"></script>
+<script type="text/javascript" src="../common/script/jquery.i18n/jquery.i18n.js"></script>
+<script type="text/javascript" src="../common/script/jquery.i18n/jquery.i18n.messagestore.js"></script>
+<script type="text/javascript" src="../common/i18n/i18n-hportal.js"></script>
+<link rel="stylesheet" href="../common/css/custom.css">
+       
+<link href="../common/script/jqueryui/jquery-ui-redmond.1.9.1.css" rel="stylesheet"/>           
+<script src="../common/script/jqueryui/jquery-ui.1.9.1.js"></script>
+
+
+
+<link href="../common/script/jqgrid/css/ui.jqgrid.css" rel="stylesheet"/>           
+<script src="../common/script/jqgrid/js/i18n/grid.locale-vi.js"></script>            
+<script src="../common/script/jqgrid/js/jquery.jqGrid.min.js"></script>
+
+<script type="text/javascript" src="../common/script/UIUtil.js" ></script>
+<script type="text/javascript" src="../dynform/FindMgrEx.js"></script>
+
+<div  width="100%"  id="divMain" class="container"" style="z-index: -1;">	
+	
+      <div id="divFilter" style="width: 100%;">
+	</div>				
+    <div id="divContent" style="width: 100%;">
+	</div>          	
+    <div class="row">
+        <div class="col-md-12 text-right" style="margin-bottom:10px;">
+			<button type="button" class="btn btn-default btn-md" id="cmdFilter">
+  					<span class="glyphicon glyphicon-search"></span> Search
+			</button>
+		</div>
+	</div>
+	
+     <div class="row">
+            <div class="col-md-12">
+            	<table id="gridInfo"></table><div id="pager_gridInfo"></div>
+          	</div>
+    </div>
+</div>
+
+<script type="text/javascript">
+	var opt=[];
+	var table_name='{table}';
+	
+	var hospital_id = '{hospital_id}';
+    var user_id = '{user_id}';
+    var user_type = '{user_type}';
+    console.log('hospital_id='+hospital_id+' user_type='+user_type);
+	var session_par=[];
+	session_par[0]=hospital_id;
+	session_par[1]=user_id;
+	session_par[2]=user_type;
+	var lang= "{lang}";
+    if(lang=='') lang='vn';
+</script>
+
+<script>
+	initRest();
+	//loadDefinition(table_name);
+	(function () {
+		loadAsync('../dynform/FindMgrEx/'+table_name+'.js', function(){
+			//console.log('loadAsync='+table_name+' lang='+lang+' _opts='+JSON.stringify(_opts));			
+		    _opts[lang]._param=session_par;
+		    var findMgr = new CFindMgr(_opts[lang]);
+			findMgr.load();
+	    });
+	})();	
+</script>

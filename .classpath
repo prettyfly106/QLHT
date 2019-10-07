@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/src_web"/>
+	<classpathentry kind="src" path="src/src_util"/>
+	<classpathentry kind="src" path="src/src_lib"/>
+	<classpathentry kind="src" path="src/src_upload"/>
+	<classpathentry kind="src" path="src/src_ajax"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="output" path="WEBROOT/WEB-INF/classes"/>
+</classpath>

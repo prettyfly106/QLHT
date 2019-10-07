@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="baocaongay" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="575" leftMargin="10" rightMargin="10" topMargin="20" bottomMargin="20" uuid="ddea34bf-144d-46de-bc9c-f88da7e84bbe">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="532"/>
+	<parameter name="tungay" class="java.util.Date"/>
+	<parameter name="denngay" class="java.util.Date"/>
+	<parameter name="dvtt" class="java.lang.String"/>
+	<parameter name="tensoyte" class="java.lang.String"/>
+	<parameter name="tenbenhvien" class="java.lang.String"/>
+	<parameter name="tieude" class="java.lang.String"/>
+	<parameter name="tenkhoa" class="java.lang.String"/>
+	<parameter name="ngay" class="java.lang.String"/>
+	<parameter name="thang" class="java.lang.String"/>
+	<parameter name="nam" class="java.lang.String"/>
+	<parameter name="nguoilapbaocao" class="java.lang.String"/>
+	<parameter name="cur" class="java.sql.ResultSet" isForPrompting="false"/>
+	<queryString language="plsql">
+		<![CDATA[{call baocao_inbaocaongay($P{tungay},$P{denngay},$P{dvtt},$P{cur})}]]>
+	</queryString>
+	<field name="stt" class="java.lang.String"/>
+	<field name="noidung" class="java.lang.String"/>
+	<field name="uutien" class="java.lang.Integer"/>
+	<field name="kyhieu" class="java.lang.String"/>
+	<field name="ghichu" class="java.lang.String"/>
+	<field name="noitinh_tongso" class="java.lang.Integer"/>
+	<field name="noitinh_nam" class="java.lang.Integer"/>
+	<field name="noitinh_nu" class="java.lang.Integer"/>
+	<field name="noitinh_treem" class="java.lang.Integer"/>
+	<field name="ngoaitinh_tongso" class="java.lang.Integer"/>
+	<field name="ngoaitinh_nam" class="java.lang.Integer"/>
+	<field name="ngoaitinh_nu" class="java.lang.Integer"/>
+	<field name="ngoaitinh_treem" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="178" splitType="Stretch">
+			<textField>
+				<reportElement x="25" y="0" width="343" height="20" uuid="dd4dcbf1-6515-4bb3-911a-45c1a54e67cf"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tensoyte}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement mode="Transparent" x="25" y="20" width="343" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="a75c9bf7-57a1-4ca6-922b-436dea089db3"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tenbenhvien}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement mode="Transparent" x="25" y="40" width="343" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="16d7653e-e72b-4678-9e72-94435a56107d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tenkhoa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="137" y="71" width="293" height="36" uuid="eb63cca7-b0fa-499d-bab2-72abad8d0f25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="30" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[BÁO CÁO NGÀY]]></text>
+			</staticText>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement mode="Transparent" x="137" y="107" width="293" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="6cfadb5c-66c8-4b08-8b43-900bf61df4f4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="true" isItalic="true" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tieude}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="137" y="127" width="293" height="15" uuid="c0d384bd-3c22-414e-90c8-1669fa2a0f98"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Serif" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[------------------ o.0.o -----------------------]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="157" width="152" height="20" uuid="a5019994-8a26-423b-ba1d-ff287192aac4"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[I. THỐNG KÊ SỐ LIỆU]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="51">
+			<staticText>
+				<reportElement x="11" y="1" width="30" height="50" uuid="0e90d17c-678a-4129-bc8e-a375d3a34c0e"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[STT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="41" y="1" width="150" height="50" forecolor="#000000" backcolor="#FFFFFF" uuid="7b9a57fb-5707-40a5-9317-1b579a52dfc4"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Nội dung]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="191" y="1" width="170" height="25" forecolor="#000000" backcolor="#FFFFFF" uuid="29641339-7e32-4150-8eae-05c3d76c5088"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[BỆNH NHÂN TRONG TỈNH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="191" y="26" width="50" height="25" forecolor="#000000" backcolor="#FFFFFF" uuid="34d378bc-986c-49ef-8d95-1b9e22c5f0b4"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Tổng số]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="361" y="1" width="170" height="25" forecolor="#000000" backcolor="#FFFFFF" uuid="50fee901-e107-41d3-9b75-4c77edc68d45"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[BỆNH NHÂN NGOÀI TỈNH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="531" y="1" width="37" height="50" forecolor="#000000" backcolor="#FFFFFF" uuid="e56e7c99-c8bb-49b0-b8a9-2dbc8057d0b9"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Ghi chú]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="361" y="26" width="50" height="25" forecolor="#000000" backcolor="#FFFFFF" uuid="1c9415c0-d31c-40ba-a655-f3962db51734"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Tổng số]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="241" y="26" width="40" height="25" forecolor="#000000" backcolor="#FFFFFF" uuid="74a814a2-832e-40fc-8ccf-becd6f584e10"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Nam]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="411" y="26" width="40" height="25" forecolor="#000000" backcolor="#FFFFFF" uuid="6c77f326-9530-4d5c-a389-7f32c9ef5a84"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Nam]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="281" y="26" width="40" height="25" forecolor="#000000" backcolor="#FFFFFF" uuid="8ee7805c-f97a-4643-a1ce-ec761500893c"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Nữ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="451" y="26" width="40" height="25" forecolor="#000000" backcolor="#FFFFFF" uuid="80377b5d-0a35-4bb2-867c-22a19593a6db"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Nữ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="321" y="26" width="40" height="25" forecolor="#000000" backcolor="#FFFFFF" uuid="1ca1f4fb-cab0-4e51-afe6-80e34441a0e5"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Trẻ em]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="491" y="26" width="40" height="25" forecolor="#000000" backcolor="#FFFFFF" uuid="77dd71f0-9148-4315-92fb-69a2174b3eae"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Trẻ em]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="11" y="0" width="30" height="20" uuid="0b175fa5-802c-4cf5-9ca1-168b494891eb"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stt}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="41" y="0" width="150" height="20" uuid="44f6367d-10c9-4d2f-9de1-25bed25ceace"/>
+				<box leftPadding="5">
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noidung}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="191" y="0" width="50" height="20" uuid="0768340f-44b9-4e8f-a1af-ad1e7f1e9029"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noitinh_tongso}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="241" y="0" width="40" height="20" uuid="e150c437-3cf4-4609-b957-febca60db7bf"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noitinh_nam}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="281" y="0" width="40" height="20" uuid="82003cae-3ff7-4656-9676-2f9175211ff5"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noitinh_nu}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="321" y="0" width="40" height="20" uuid="b3b4c67a-0e5d-4c62-815b-29848fe08152"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noitinh_treem}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="361" y="0" width="50" height="20" uuid="a9187a01-1e2a-4939-852b-4d986b9a554c"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ngoaitinh_tongso}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="411" y="0" width="40" height="20" uuid="172e1bd7-0992-4aec-98f2-835401969624"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ngoaitinh_nam}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="451" y="0" width="40" height="20" uuid="7310df4c-3d3d-47e6-bde1-4b89e321f0fc"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ngoaitinh_nu}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="491" y="0" width="40" height="20" uuid="b4f08d5c-64c0-4a97-9b35-1008655ba222"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ngoaitinh_treem}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="531" y="0" width="37" height="20" uuid="047052c0-6e1d-4270-b482-e2e60652e876"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ghichu}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="586" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="13" width="103" height="25" uuid="5b0baa17-6fd3-4550-8ea4-17f0a706611c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[II. HOẠT ĐỘNG :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="240" width="162" height="25" uuid="7698b18d-6135-42ca-b3c9-65380c14f6f2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[III. ĐỀ XUẤT KIẾN NGHỊ :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="38" width="553" height="25" uuid="a4bb2650-3bf9-4b6c-aa59-b07108359cf8"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[.....................................................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="114" y="13" width="461" height="25" uuid="fc09a4e5-6920-4aff-b91c-38e680a68991"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[...................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="163" y="240" width="412" height="25" uuid="6101e349-00e1-44cf-b559-4110f9bb9164"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[.................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="348" y="475" width="37" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="d365aa28-71ed-4270-9fd3-3c3327aa6175"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Ngày]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="415" y="475" width="43" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="1d4249f2-0335-497c-aacd-4e9f6cb22b12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[tháng]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="488" y="475" width="30" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="c4d960e5-6528-4e8d-8b97-10c1519f5804"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[năm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="369" y="495" width="199" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="32c77ee1-3298-4f58-b9bb-3d3fe139e082"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Người báo cáo]]></text>
+			</staticText>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement mode="Transparent" x="458" y="475" width="30" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="d1bd81a9-dd40-4f80-bc84-4953b8851187"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{thang}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement mode="Transparent" x="518" y="475" width="50" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="0ea20a9e-bdce-4d84-8de5-cb0ad0805b65"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nam}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="370" y="560" width="198" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="4acc3368-c95a-4cfe-b8d3-1ac6fbabea72"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nguoilapbaocao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="63" width="553" height="25" uuid="3187672e-dc74-4227-939e-0bd81322f9f7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[.....................................................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="88" width="553" height="25" uuid="d3481e48-cae6-497d-9abf-c5b9c663274e"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[.....................................................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="113" width="553" height="25" uuid="f1f40365-1437-48b8-97e3-a8aa71b8f50b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[.....................................................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="138" width="553" height="25" uuid="40641956-5d40-4c0a-85ac-72ed5cc0cd02"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[.....................................................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="162" width="553" height="25" uuid="a2215289-b4dc-4512-9923-32fd14bf89a0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[.....................................................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="290" width="553" height="25" uuid="8ca136a8-7a3f-40af-bda5-8f5a4a468db8"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[.....................................................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="315" width="553" height="25" uuid="8a9abe8f-0d46-4098-8150-f648acc58a46"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[.....................................................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="340" width="553" height="25" uuid="32b200bf-d418-44b7-8dee-cec31024d1df"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[.....................................................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="365" width="553" height="25" uuid="0c435d4c-4642-4b72-b949-d501fe1237ac"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[.....................................................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="265" width="553" height="25" uuid="046e8de3-b999-40e7-9a2d-ba1be9aaf382"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[.....................................................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="389" width="553" height="25" uuid="3d0b16f5-2678-4b53-9673-b152653a72bb"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[.....................................................................................................................................................................................]]></text>
+			</staticText>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement mode="Transparent" x="385" y="475" width="30" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="df9e6601-f71f-438c-9aa5-6303d24c3f81"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="DejaVu Serif" size="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ngay}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="187" width="553" height="25" uuid="87843aae-84c7-4d0b-9fdf-ea7b94d730dc"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[.....................................................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="211" width="553" height="25" uuid="e19f53a7-6e5f-49fd-b196-fc84782114a3"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[.....................................................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="438" width="553" height="25" uuid="38825e06-10ec-4ce6-b66e-178e06256105"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[.....................................................................................................................................................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="414" width="553" height="25" uuid="3195398a-c6fb-4e87-ac0f-1f3d96216571"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[.....................................................................................................................................................................................]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

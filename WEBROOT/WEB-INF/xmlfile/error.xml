@@ -1,0 +1,23 @@
+<Data>
+	<Header>
+		<Message_Version>1.0</Message_Version>
+		<Sender_Code></Sender_Code>
+		<Sender_Name></Sender_Name>
+		<Transaction_Type></Transaction_Type>
+		<Transaction_Name></Transaction_Name>
+		<Transaction_Date></Transaction_Date>
+		<Transaction_ID></Transaction_ID>
+		<Request_ID></Request_ID>
+	</Header>
+	<Body>
+		  
+	</Body>
+	<Error>
+			 <Error_Number></Error_Number>
+			 <Error_Message></Error_Message>
+	</Error>
+	<Security>
+		<Signature>
+		</Signature>
+	</Security>
+</Data>

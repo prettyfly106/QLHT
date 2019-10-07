@@ -1,0 +1,244 @@
+<script type="text/javascript" src="../common/script/main.js"></script>
+<script type="text/javascript" src="{menuJS}"></script>
+<input type="hidden" name="company_id" id="company_id" value="{company_id}" />
+<input type="hidden" name="user_id" id="user_id" value="{user_id}" />
+<script type="text/javascript" src="../common/script/RestService.js" ></script>
+<script type="text/javascript" src="../common/script/dbForm.js" ></script>
+<script type="text/javascript" src="../common/script/dbToolbar.js" ></script>
+<script type="text/javascript" src="../common/script/DataValidator.js" ></script>
+<script type="text/javascript" src="../common/script/CommonUtil.js" ></script>
+<script type="text/javascript" src="../common/script/jsdatetime/Scripts/DateTimePicker.js"></script>
+<!-- <link rel="stylesheet" href="../common/script/bootstrap/css/bootstrap.css"> -->
+       
+<link href="../common/script/jqueryui/jquery-ui-redmond.1.9.1.css" rel="stylesheet"/>           
+<script src="../common/script/jqueryui/jquery-ui.1.9.1.js"></script>
+
+<link href="../common/script/jqgrid/css/ui.jqgrid.css" rel="stylesheet"/>           
+<script src="../common/script/jqgrid/js/i18n/grid.locale-vi.js"></script>            
+<script src="../common/script/jqgrid/js/jquery.jqGrid.min.js"></script>
+
+<link href="../common/script/tree/skin-win8/ui.fancytree.css" rel="stylesheet"/>
+<script src="../common/script/tree/jquery.fancytrees.js"></script> 
+<script src="../common/script/tree/jquery.fancytree.filter.js"></script> 
+        
+<script type="text/javascript" src="../common/script/UIUtil.js" ></script>
+<script type="text/javascript" src="../dynform/TreeMgrEx.js"></script>
+
+<script type="text/javascript">
+	var opt=[];
+	var hospital_id = '{hospital_id}';
+	var lang = '{lang}';
+    var user_id = '{user_id}';
+    var user_type = '{user_type}';
+    console.log('hospital_id='+hospital_id+' user_type='+user_type);
+	var sys_par=[];
+	var table_name='{table}';
+	
+</script>
+<script type="text/javascript" src="../dynform/TreeMgrDataEx_en.js"></script>
+
+<body>
+<div id="divMain">
+    <div class="panel panel-primary">
+        <div class="panel-heading" id="title"><strong style="font-size: 1.2em;"></strong></div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id='divFilter' style="width: 100%; display: block">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                        	<div class="panel panel-default">
+			            	  <div class="panel-heading" id="treeTitle"></div>
+							  <div class="panel-body" style="min-height:500px">
+							    	<div id="leftTree" style="height: 100%; background-color: #f5f5f5; border: 1px solid Silver;"></div>
+							  </div>
+							</div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="divContent" style="width: 100%; display: block">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                    	<div class="col-md-4">
+                            <div id="custom_toolbar" align="left"></div>
+                        </div>
+                        <div class="col-md-8" align="left">
+            				<div id="db_toolbar" > </div>
+          				</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table id="gridInfo"></table><div id="pager_gridInfo"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MENU EDITOR -->
+</div>
+
+<script type="text/x-template" id='template-DM_DVHC'>
+    <fieldset>
+        <legend>Detail Information</legend>
+        <div class="row form-group form-group-sm required">
+            <div class="col-md-2 control-label">Administrative code</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtMA_DVHC" name="txtMA_DVHC" title="">
+            </div>
+            <div class="col-md-2 control-label">Abbreviations</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtVIETTAT_DVHC" name="txtVIETTAT_DVHC" title="" >
+            </div>
+        </div>
+		<div class="row form-group form-group-sm required">
+            <div class="col-md-2 control-label">Technical Name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtTEN_DVHC" name="txtTEN_DVHC" title="">
+            </div>
+            <div class="col-md-2 control-label">Parents Category</div>
+            <div class="col-md-4"><select name="cboMA_CHA" id="cboMA_CHA" class="form-control input-sm"></select></div>
+        </div>
+        <div class="row form-group form-group-sm required">
+            <div class="col-md-2 control-label">Unit type</div>
+            <div class="col-md-4"><select name="cboLOAI_DVHC" id="cboLOAI_DVHC" class="form-control input-sm"></select></div>
+			<div class="col-md-2 control-label">Status</div>
+            <div class="col-md-4"><select name="cboTRANG_THAI" id="cboTRANG_THAI" class="form-control input-sm"></select></div>
+        </div>
+    </fieldset>
+    <!--</div>
+</div>-->
+</script>
+<script type="text/x-template" id='template-Property'>
+    <fieldset>
+        <legend>Detail Information</legend>
+        <div class="row form-group form-group-sm required">
+            <div class="col-md-2 control-label">Entity Name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtNAME" name="txtNAME" title="">
+            </div>
+            <div class="col-md-2 control-label">Code</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtITEM_UID" name="txtITEM_UID" title="" >
+            </div>
+        </div>
+        <div class="row form-group form-group-sm required">
+            <div class="col-md-2 control-label">Parents Category</div>
+            <div class="col-md-4"><select name="cboPARENT_ID" id="cboPARENT_ID" class="form-control input-sm"></select></div>
+            <div class="col-md-2 control-label">Loại hạng mục</div>
+            <div class="col-md-4"><select name="cboITEM_TYPE" id="cboITEM_TYPE" class="form-control input-sm"></select>
+            </div>
+        </div>
+        <div class="row form-group form-group-sm required">
+            <div class="col-md-2 control-label">Technical Name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtDE_TECHNICALNAME" name="txtDE_TECHNICALNAME" title="">
+            </div>
+            <div class="col-md-2 control-label">Definition</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtDEFINITION" name="txtDEFINITION" title=""></div>
+        </div>
+		<div class="row form-group form-group-sm">
+            <div class="col-md-2">Ref</div>
+            <div class="col-md-10"><select name="cboREF_ID" id="cboREF_ID" class="form-control input-sm"></select></div>
+            
+        </div>
+ 		<div class="row form-group form-group-sm">
+            <div class="col-md-2">Data type</div>
+            <div class="col-md-4"><select name="cboVD_DATATYPEID" id="cboVD_DATATYPEID" class="form-control input-sm"></select></div>
+            <div class="col-md-2">Precision</div>
+            <div class="col-md-2"><input class="form-control input-sm" id="txtDE_PRECISION" name="txtDE_PRECISION" title=""></div>
+			<div class="col-md-2"><input class="form-control input-sm" id="txtVD_DECIMALPLACE" name="txtVD_DECIMALPLACE" title=""></div>
+        </div>
+		<div class="row form-group form-group-sm">
+            <div class="col-md-2">Format</div>
+            <div class="col-md-10"><input class="form-control input-sm" id="txtVD_FORMAT" name="txtVD_FORMAT" title=""></div>            
+        </div>
+			<div class="row form-group form-group-sm required">			
+            <div class="col-md-6"><label class="control-label">Note:</label> required to fill information</div>
+            <div class="col-md-6"> </div>
+        </div>
+    </fieldset>
+    <!--</div>
+</div>-->
+</script>
+<script type="text/x-template" id='template-Property-Filter'>
+
+    <fieldset>
+        <legend>Filter</legend>
+        <div class="row form-group form-group-sm">
+            <div class="col-md-4">Context</div>
+            <div class="col-md-8"><select class="form-control input-sm" name="cboCONTEXTID"  id="cboCONTEXTID"></select></div>
+        </div>
+        <div class="row form-group form-group-sm">
+            <div class="col-md-4">Registration</div>
+            <div class="col-md-8"><select class="form-control input-sm" name="cboREGISTRATION_ID" id="cboREGISTRATION_ID"></select></div>
+        </div>
+
+    </fieldset>
+
+</script>
+<script type="text/x-template" id='template-ObjectClass'>    
+    <fieldset>
+        <legend>Detail Information</legend>
+        <div class="row form-group form-group-sm required">
+            <div class="col-md-2 control-label">Entity name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtNAME" name="txtNAME" title="">
+            </div>
+            <div class="col-md-2 control-label">Code</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtITEM_UID" name="txtITEM_UID" title="" >
+            </div>
+        </div>
+        <div class="row form-group form-group-sm required">
+            <div class="col-md-2 control-label">Parents Category</div>
+            <div class="col-md-4"><select name="cboPARENT_ID" id="cboPARENT_ID" class="form-control input-sm"></select></div>
+            <div class="col-md-2 control-label">Category type</div>
+            <div class="col-md-4"><select name="cboITEM_TYPE" id="cboITEM_TYPE" class="form-control input-sm"></select>
+            </div>
+        </div>
+        <div class="row form-group form-group-sm required">
+            <div class="col-md-2 control-label">Technical name</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtDE_TECHNICALNAME" name="txtDE_TECHNICALNAME" title="">
+            </div>
+            <div class="col-md-2 control-label">Definition</div>
+            <div class="col-md-4"><input class="form-control input-sm" id="txtDEFINITION" name="txtDEFINITION" title=""></div>
+        </div>
+
+		<div class="row form-group form-group-sm required">			
+            <div class="col-md-6"><label class="control-label">Note:</label> required to fill information</div>
+            <div class="col-md-6"> </div>
+        </div>
+    </fieldset>
+    <!--</div>
+</div>-->
+</script>
+<script type="text/x-template" id='template-ObjectClass-Filter'>
+
+    <fieldset>
+        <legend>Filter</legend>
+        <div class="row form-group form-group-sm">
+            <div class="col-md-4">Context</div>
+            <div class="col-md-8"><select class="form-control input-sm" name="cboCONTEXTID"  id="cboCONTEXTID"></select></div>
+        </div>
+        <div class="row form-group form-group-sm">
+            <div class="col-md-4">Registration</div>
+            <div class="col-md-8"><select class="form-control input-sm" name="cboREGISTRATION_ID" id="cboREGISTRATION_ID"></select></div>
+        </div>
+
+    </fieldset>
+
+</script>
+<script>
+	initRest();
+	var _opts=opt[table_name];
+    var treeMgr = new CTreeMgr(_opts);
+    treeMgr.load();
+</script>
+<!--
+</body>-->

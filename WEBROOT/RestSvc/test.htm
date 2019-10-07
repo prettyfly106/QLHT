@@ -1,0 +1,126 @@
+<script type="text/javascript" src="../common/script/main.js"></script>
+<script type="text/javascript" src="{menuJS}"></script>
+<input type="hidden" name="company_id" id="company_id" value="{company_id}" />
+<input type="hidden" name="user_id" id="user_id" value="{user_id}" />
+<script type="text/javascript" src="../common/script/RestService.js" ></script>
+<script type="text/javascript" src="../common/script/dbForm.js" ></script>
+<script type="text/javascript" src="../common/script/dbToolbar.js" ></script>
+<script type="text/javascript" src="../common/script/DataValidator.js" ></script>
+<script type="text/javascript" src="../common/script/CommonUtil.js" ></script>
+<script type="text/javascript" src="../common/script/jquery/jquery.toaster.js" ></script>
+<script type="text/javascript" src="../common/script/jsdatetime/Scripts/DateTimePicker.js"></script>
+<script type="text/javascript" src="../common/script/jquery.tableExport/tableExport.js"></script>
+<script type="text/javascript" src="../common/script/jquery.tableExport/jquery.base64.js"></script>
+       
+           
+<script src="../common/script/jqueryui/jquery-ui.1.9.1.js"></script>
+
+<!-- 
+
+<link rel="stylesheet" type="text/css" media="screen" href="../common/script/jquery.combogrid/jquery-ui-1.10.1.custom.css"/>
+ -->
+<link href="../common/script/jqueryui/jquery-ui-redmond.1.9.1.css" rel="stylesheet"/> 
+<link rel="stylesheet" type="text/css" media="screen" href="../common/script/jquery.combogrid/jquery.ui.combogrid.css"/>
+<script type="text/javascript" src="../common/script/jquery.combogrid/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../common/script/jquery.combogrid/jquery-ui-1.10.1.custom.min.js"></script>
+<script type="text/javascript" src="../common/script/jquery/jquery.xml2json.js"></script>
+<script type="text/javascript" src="../common/script/jquery/jquery.soap.js"></script>
+<script type="text/javascript" src="../common/script/WSPortal.js"></script>
+
+<script src="../common/script/jquery.combogrid/jquery.ui.combogrid-1.6.3.js"></script>
+<link href="../common/script/jqgrid/css/ui.jqgrid.css" rel="stylesheet"/>           
+<script src="../common/script/jqgrid/js/i18n/grid.locale-vi.js"></script>            
+<script src="../common/script/jqgrid/js/jquery.jqGrid.min.js"></script>
+
+<script type="text/javascript" src="../common/script/UIUtil.js" ></script>
+
+<div  width="100%"  id="divMain" class="container">
+<div id="toolbar">
+<div class="bs-example" data-example-id="split-button-dropdown"> 
+<div class="btn-group"> 
+<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-download-alt"></i>Default</button> 
+<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+<span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> 
+</button> 
+<ul class="dropdown-menu"> 
+<li><a href="#">Action</a></li> 
+<li><a href="#">Another action</a></li> 
+<li><a href="#">Something else here</a></li> 
+<li role="separator" class="divider"></li> 
+<li><a href="#">Separated link</a></li> 
+</ul> 
+</div> 
+<div class="btn-group"> 
+<button type="button" class="btn btn-primary">Primary</button> 
+<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+<span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button> <ul class="dropdown-menu"> <li><a href="#">Action</a></li> <li><a href="#">Another action</a></li> <li><a href="#">Something else here</a></li> <li role="separator" class="divider"></li> <li><a href="#">Separated link</a></li> </ul> </div> <div class="btn-group"> <button type="button" class="btn btn-success">Success</button> <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button> <ul class="dropdown-menu"> <li><a href="#">Action</a></li> <li><a href="#">Another action</a></li> <li><a href="#">Something else here</a></li> <li role="separator" class="divider"></li> <li><a href="#">Separated link</a></li> </ul> </div> <div class="btn-group"> <button type="button" class="btn btn-info">Info</button> <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button> <ul class="dropdown-menu"> <li><a href="#">Action</a></li> <li><a href="#">Another action</a></li> <li><a href="#">Something else here</a></li> <li role="separator" class="divider"></li> <li><a href="#">Separated link</a></li> </ul> </div> <div class="btn-group"> <button type="button" class="btn btn-warning">Warning</button> <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button> <ul class="dropdown-menu"> <li><a href="#">Action</a></li> <li><a href="#">Another action</a></li> <li><a href="#">Something else here</a></li> <li role="separator" class="divider"></li> <li><a href="#">Separated link</a></li> </ul> </div> <div class="btn-group"> <button type="button" class="btn btn-danger">Danger</button> <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button> <ul class="dropdown-menu"> <li><a href="#">Action</a></li> <li><a href="#">Another action</a></li> <li><a href="#">Something else here</a></li> <li role="separator" class="divider"></li> <li><a href="#">Separated link</a></li> </ul> </div> </div>
+
+</div>
+<div style="float:left"><input size="30" id="cbicd"/></div><br/>&nbsp;<br/>
+   <div id="divFilter" style="width: 100%; display: block">
+	</div>	
+    <div id="divContent" style="width: 100%; display: block">
+	</div>	
+    <div class="row">
+            <div class="col-md-4">
+                 <div id="custom_toolbar" align="left"></div>
+             </div>
+             <div class="col-md-8" align="left">
+ 				<div id="db_toolbar" > </div>
+			</div>
+    </div>
+     <div class="row">
+            <div class="col-md-12">
+            	<table id="gridInfo"></table><div id="pager_gridInfo"></div>
+          	</div>
+    </div>
+</div>
+
+<script type="text/javascript">
+	var opt=[];
+	var hospital_id = '{hospital_id}';
+    var user_id = '{user_id}';
+    var user_type = '{user_type}';
+    var province_id = '{province_id}';
+    var lang= "vi";
+    console.log('hospital_id='+hospital_id+' user_type='+user_type);
+	var session_par=[];
+	session_par[0]=hospital_id;
+	session_par[1]=user_id;
+	session_par[2]=user_type;
+	session_par[3]=province_id;
+	var table_name='{table}';
+	initRest();
+</script>
+<script>
+$(document).ready(function(){
+	var _col="ICD,ICD,20,0,f,l;Mô tả bệnh lý,MO_TA_BENH_LY,80,0,f,l;mabenhly,MA_BENH_LY,0,0,t,l";
+	var _sql="select MA_BENH ICD,ten_benh_origin_v MO_TA_BENH_LY,ten_chuong_v MA_BENH_LY from byt_dm_icd where ma_benh like '[FILTER]%'";
+	var _sql_par=[];
+	var _selfnc=function(event, ui) {
+        $("#cbicd").val(ui.item.MO_TA_BENH_LY);
+        $("#icd").val(ui.item.ICD);
+        $("#mabenhly").val(ui.item.MA_BENH_LY);
+        return false;
+    };
+    //comboGrid_init(cboId,_wd,_col,_sql,_sql_par,_selfnc) {
+	comboGrid_init("cbicd",_sql,_sql_par,"600px",_col,_selfnc);
+	
+});
+
+var wsPortal=new WSPortal('','http://localhost:8081/hPortal/services/WSPortal','82007','123a@');
+wsPortal.kt_lamdungthe('HT2960100100430',function(_rt) {
+	console.log("kt_lamdungthe._rt="+JSON.stringify(_rt));
+});
+
+    /*
+	nghị định 102, 
+	phạm vi quy mô đầu tư,địa điểm,
+	phương án lựa chọn công nghệ,
+	phương án kỹ thuật,
+	kiến trúc tổng thể, mô tả các thành phần, 
+	mô tả các chức năng hệ thống
+	*/    
+  
+
+</script>
