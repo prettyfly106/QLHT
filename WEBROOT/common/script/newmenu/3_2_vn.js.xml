@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+<item id="1" text="Hệ thống">
+<userdata name="hlink">null</userdata>
+<userdata name="options">0:0</userdata>
+<item id="101" text="Đăng xuất">
+<userdata name="hlink">/hPortal/login/login.jsp</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="102" text="Đổi mật khẩu">
+<userdata name="hlink">/hPortal/main/manager.jsp?func=../admin/changePassword</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+</item>
+
+<item id="3" text="Quản trị hệ thống">
+<userdata name="hlink">null</userdata>
+<userdata name="options">0:0</userdata>
+<item id="3_1" text="Quản lý đơn vị">
+	<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=ORG_COMPANY</userdata>
+	<userdata name="options">0:0</userdata>
+</item>
+<item id="183_sp" type="separator"/>
+<item id="194" text="Quản lý nhân viên">
+<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=ORG_OFFICER</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="125" text="Quản lý NSD">
+	<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=ADM_USER</userdata>
+	<userdata name="options">0:0</userdata>
+</item>
+
+<item id="126" text="Nhập file excel">
+<userdata name="hlink">/hPortal/upload/fileSelectXLS.jsp?action=uploadExcel&amp;useFilter=false</userdata>
+<userdata name="options">0:1</userdata>
+</item>
+
+</item>
+
+<item id="600" text="Báo cáo">
+	<item id="601" text="Danh sách hồ sơ">
+		<userdata name="hlink">/hPortal/report/openReport.jsp?code=12</userdata>
+		<userdata name="options">0:1</userdata>
+	</item>	
+</item>
+
+<item id="400" text="Quản lý danh mục hệ thống">
+	<userdata name="hlink">Cấu hình tham số cho đơn vị</userdata>
+	<userdata name="options">0:0</userdata>
+	<item id="401" text="Quản lý danh mục CSYT">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=L001</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	<item id="402" text="Quản lý danh mục Khoa">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=DM_KHOA</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	<item id="403" text="Quản lý danh mục Hạng bệnh viện">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=DM_HANG_BV</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	<item id="404" text="Quản lý danh mục Huyện">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=DM_HUYEN</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	<item id="405" text="Quản lý danh mục Tỉnh">
+  		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=DM_TINH</userdata>
+  		<userdata name="options">0:0</userdata>
+ 	</item>
+ 	<item id="406" text="Quản lý danh mục Bệnh YHCT">
+  		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=DM_BENH_YHCT</userdata>
+  		<userdata name="options">0:0</userdata>
+ 	</item>
+ 	<item id="407" text="Quản lý danh mục Chế phẩm YHCT">
+  		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=DM_CHEPHAM_YHCT</userdata>
+  		<userdata name="options">0:0</userdata>
+ 	</item>
+ 	<item id="408" text="Quản lý danh mục Đường dùng">
+  		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=DM_DUONGDUNG</userdata>
+  		<userdata name="options">0:0</userdata>
+ 	</item>
+ 	<item id="409" text="Quản lý danh mục Nhóm theo chi phí">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=DM_NHOM_THEO_CHIPHI</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	<item id="410" text="Quản lý danh mục DVKT">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=DM_DVKT</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	<item id="411" text="Quản lý danh mục Tuyến BV">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=DM_TUYEN_BV</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	<item id="412" text="Quản lý danh mục DVHC">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/TreeMgrEx&amp;table=DM_DVHC</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	
+</item>
+
+</menu>

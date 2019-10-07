@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+<item id="29" text="Hệ thống">
+<userdata name="hlink">null</userdata>
+<userdata name="options">0:0</userdata>
+<item id="35" text="Đăng xuất">
+<userdata name="hlink">/hPortal/login/login.jsp</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="36" text="Đổi mật khẩu">
+<userdata name="hlink">/hPortal/main/manager.jsp?func=../admin/changePassword</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+</item>
+<item id="116" text="Thiết kế">
+<userdata name="hlink">null</userdata>
+<userdata name="options">0:0</userdata>
+<item id="117" text="Quản lý menu">
+<userdata name="hlink">/hPortal/main/manager.jsp?func=../admin/menu&amp;useFilter=true</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+
+<item id="120" text="Quản lý danh mục">
+<userdata name="hlink">/hPortal/main/manager.jsp?func=../admin/directory_mgr&amp;useFilter=true</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="121" text="Cấu hình form động">
+<userdata name="hlink">/hPortal/admin/manager.jsp?func=dynform&amp;form_code=DYN_FORM</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="126" text="Cấu hình danh mục động">
+<userdata name="hlink">/hPortal/admin/manager.jsp?func=dynform&amp;form_code=ADM_DIRECTORY_MGR</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="143" text="Nhập báo cáo động">
+<userdata name="hlink">/hPortal/DynamicView/xlsSelectFile.jsp?action=xlsImpReport</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="144" text="Test báo cáo động">
+<userdata name="hlink">/hPortal/admin/manager.jsp?func=../DynamicView/DynamicReport</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="145" text="Nhập bản mẫu in ấn">
+<userdata name="hlink">/hPortal/DynamicView/xlsSelectFile.jsp?action=xlsImpTemplate</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="147" text="Test bản mẫu in ấn">
+<userdata name="hlink">/hPortal/common/jsp/printTicket.jsp?printList=2572339&amp;ticketType=FAIL_TICKET</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+</item>
+<item id="119" text="Quản trị hệ thống">
+<userdata name="hlink">null</userdata>
+<userdata name="options">0:0</userdata>
+<item id="222" text="Quản lý Khoa/Phòng/Gường">
+<userdata name="hlink">/hPortal/main/manager.jsp?func=../admin/manageDepRoomBed </userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="182" text="Quản lý Khoa/Phòng chức năng">
+<userdata name="hlink">/hPortal/main/manager.jsp?func=../admin/manageDep</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="183" text="Quản lý phòng">
+<userdata name="hlink">/hPortal/main/manager.jsp?func=../admin/manageRoom</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="183_sp" type="separator"/>
+<item id="194" text="Quản lý nhân viên">
+<userdata name="hlink">/hPortal/admin/manager.jsp?func=orgMgr&amp;mode=officer</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="125" text="Quản lý NSD">
+	<userdata name="hlink">/hPortal/main/manager.jsp?func=../admin/ListMgr&amp;table=ADM_USER</userdata>
+	<userdata name="options">0:0</userdata>
+</item>
+<item id="118" text="Quản lý nhóm NSD">
+<userdata name="hlink">/hPortal/main/manager.jsp?func=../admin/ListMgr&amp;table=ADM_USER_GROUP</userdata>
+		<userdata name="options">0:0</userdata>
+</item>
+<item id="126" text="Nhập file excel">
+<userdata name="hlink">/hPortal/upload/fileSelectXLS.jsp?action=uploadExcel&amp;useFilter=false</userdata>
+<userdata name="options">0:1</userdata>
+</item>
+<item id="122" text="Phân quyền chức năng cho nhóm NSD">
+<userdata name="hlink">/hPortal/admin/manager.jsp?func=dynform2&amp;form_code=ADM_USERGROUP_FUNCTION&amp;useFilter=true</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="122_sp" type="separator"/>
+<item id="138" text="Quản lý câu lệnh SQL">
+<userdata name="hlink">/hPortal/main/manager.jsp?func=../admin/managerSQL</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="138_sp" type="separator"/>
+</item>
+<item id="400" text="Quản lý danh mục hệ thống">
+	<userdata name="hlink">Cấu hình tham số cho đơn vị</userdata>
+	<userdata name="options">0:0</userdata>
+	<item id="401" text="Quản lý danh mục CSYT">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../admin/ListMgr&amp;table=DM_COSO_KCB</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	<item id="402" text="Quản lý danh mục Khoa">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../admin/ListMgr&amp;table=DM_KHOA</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	<item id="403" text="Quản lý danh mục Hạng bệnh viện">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../admin/ListMgr&amp;table=DM_HANG_BV</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	<item id="403" text="Quản lý danh mục Huyện">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../admin/ListMgr&amp;table=DM_HUYEN</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	<item id="404" text="Báo cáo">
+		<userdata name="hlink">/hPortal/report/openReport.jsp?code=1</userdata>
+		<userdata name="options">0:1</userdata>
+	</item>
+	<item id="499" text="Quản lý danh mục chỉ định CLS và dịch vụ">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../examination/manageSubcIndic</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+</item>
+<item id="203" text="Tra cứu"/>
+</menu>

@@ -1,0 +1,143 @@
+.datepicker-sm {
+		top : 0;
+		padding : 5px !important;
+		font-size:.7em !important;
+	}
+	div.ui-jqgrid {
+		margin: 0 auto !important;
+	}
+	tr.ui-widget-content > td {
+		font-size:.9em !important;
+		font-family: "Arial, Helvetica Neue", Helvetica, sans-serif;
+	}
+	.ui-widget {
+		font-family: "Arial, Helvetica Neue", Helvetica, sans-serif;		
+	}
+	.ui-jqgrid-sortable {
+		font-size:.9em !important;
+	}
+	.ui-jqgrid-bdiv {
+		height:auto !important;
+	}	
+	div.low-padding {
+		padding:3px!important;		
+	}
+	div.low-padding > label{
+		font-size:.87em;		
+	}
+	div.low-padding > .has-feedback > label{
+		font-size:.87em;		
+	}
+	.input-sm{
+		padding:3px 5px!important;
+		height:28px !important;		
+		margin-bottom:0 !important;
+		font-size:.9em;
+	}	
+	
+	.nav > li > a{
+		padding:5px!important;
+		font-size:.85em !important;
+		font-weight:bold;		
+	}
+	.nav-tabs > li.disabled > a {	
+		pointer-events: none !important; 
+		cursor:no-drop !important;
+	}
+	div.tab {
+		padding-top:5px;
+		width:100%;
+		display:none;
+	}
+	div.active {
+		display:block !important;
+	}
+	label.l-col-s,
+	label.l-col-m,
+	label.l-col-1,
+	label.l-col-2 {
+		margin-top:5px;		
+	}
+	label.l-col-s {
+		width:30% !important;		
+	}
+	label.l-col-m {
+		width:15% !important;		
+	}
+	label.l-col-1 {
+		width:38% !important;		
+	}
+	label.l-col-2 {
+		width:19% !important;		
+	}
+	.i-col-s {
+		width:68% !important;
+		float:right !important;
+	}
+	.i-col-m {
+		width:83% !important;
+		float:right !important;
+	}
+	.i-col-1 {
+		width:60% !important;
+		float:right !important;
+	}
+	.i-col-2 {
+		width:80.1% !important;
+		float:right !important;
+	}	
+	hr {
+    height: 1px;    
+    margin-top: 5px;
+    margin-bottom: 5px;        
+}
+.not-active {
+   pointer-events: none;
+   cursor: default;
+}
+
+.form-group>div {
+	margin-bottom: 5px;
+}
+
+.form-group .button-bar {
+	margin:0 auto;
+} 
+
+
+.form-group .button-bar input {
+	margin:0 5px 0 5px;
+} 
+
+.form-group .control-label {
+	padding-right:0;
+	font-size: 11px;
+}
+
+
+.required.control-label:after {
+  content:" (*)";color:red;
+}
+.inner-addon {
+  position: relative;
+}
+
+/* style glyph */
+.inner-addon .glyphicon, .inner-addon .fa {
+  position: absolute;
+  padding: 10px;  
+}
+
+/* align glyph */
+.left-addon .glyphicon, .left-addon .fa{ left:  0px;}
+.right-addon .glyphicon, .right-addon .fa { right: 0px;}
+
+.fa.sm {
+	padding: 7px !important;
+}
+
+/* add padding  */
+.left-addon input, .left-addon span.select2-selection__rendered  { padding-left:  30px  !important; }
+.right-addon input { padding-right: 30px !important; }
+.left-addon input.input-sm  { padding-left:  25px  !important; }
+.right-addon input.input-sm { padding-right: 25px !important; }

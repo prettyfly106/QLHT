@@ -1,0 +1,98 @@
+<script type="text/javascript" src="../common/script/main.js"></script>
+<script type="text/javascript" src="{menuJS}"></script>
+
+<script type="text/javascript" src="../common/script/RestService.js" ></script>
+<script type="text/javascript" src="../common/script/dbForm.js" ></script>
+<script type="text/javascript" src="../common/script/dbToolbar.js" ></script>
+<script type="text/javascript" src="../common/script/DataValidator.js" ></script>
+<script type="text/javascript" src="../common/script/CommonUtil.js" ></script>
+<script type="text/javascript" src="../common/script/jsdatetime/Scripts/DateTimePicker.js"></script>
+<!-- <link rel="stylesheet" href="../common/script/bootstrap/css/bootstrap.css"> -->
+
+
+<!-- --> 
+<link href="/hPortal/common/css/materialize.min.css" rel="stylesheet">
+<link href="/hPortal/common/css/css_style.css" rel="stylesheet"> 
+<script type="text/javascript" src="/hPortal/common/script/menu/sidebar.js"></script>
+
+<script type="text/javascript" src="/hPortal/common/script/materialize.min.js"></script>
+         
+<link href="../common/script/jqueryui/jquery-ui-redmond.1.9.1.css" rel="stylesheet"/>           
+<script src="../common/script/jqueryui/jquery-ui.1.9.1.js"></script>
+<script src="../common/script/jqgrid/js/i18n/grid.locale-vi.js"></script>            
+<script src="../common/script/jqgrid/js/jquery.jqGrid.min.js"></script>
+<script src="../common/script/highcharts/highcharts.js"></script>
+<script src="../common/script/highcharts/highcharts-more.js"></script>
+
+<script type="text/javascript" src="../common/script/UIUtil.js" ></script>
+<script type="text/javascript" src="../chart/ChartUtil.js"></script>
+<script type="text/javascript" src="../chart/ChartMgr.js"></script>
+
+
+
+<style>	
+	div.low-padding {
+		padding:3px!important;		
+	}
+	
+	div.no-padding {
+		padding:0px!important;
+	}
+	div.panel {
+		margin-bottom: 0 !important;
+	}
+	div.panel-heading {	
+		padding:5px!important;
+		font-size:.9em;	
+	}
+	.container {
+  width: 100%; 
+  max-width:none !important;
+  padding: 0
+}
+</style> 
+
+<div  width="100%"  id="divMain" class="container">
+     <legend>BIỂU ĐỒ THỐNG KÊ</legend>
+	<div class='row'>
+		<div class="col-md-3">
+			<div id="sidemenu" class="sidebar-nav navbar-collapse"></div>
+		</div>
+		<div class="col-md-9">
+			<div class="" id="divChart" style="height:500px;">	
+		</div>
+	</div>	
+</div>  
+
+<script type="text/javascript">
+	var opt=[];
+	var lang = '{lang}'; 
+	var hospital_id = '{hospital_id}';
+	var province_id = '{province_id}';
+    var user_id = '{user_id}';
+    var user_type = '{user_type}';
+    //console.log('company_id='+company_id+' user_type='+user_type);
+    var side_menu=new CSideBar("sidemenu");
+    //side_menu.buildMenu(side_ar);
+    side_menu.loadMenu(user_type);
+    
+    
+	var ma_lk='{ma_lk}';
+</script>
+
+<script>
+	initRest();
+	var chartId='{chartId}';
+	if(chartId=='') chartId='CHART001';
+	var _period='{period}';
+	var session_par=[];
+	session_par[0]=hospital_id;
+	session_par[1]=user_id;
+	session_par[2]=user_type;
+	session_par[3]=province_id;
+	session_par[4]=_period;
+	var chart=new CChartMgr(chartId);
+	chart.buildChart();
+	//var ttBH = new CDashboard();
+	//ttBH.load();
+</script>

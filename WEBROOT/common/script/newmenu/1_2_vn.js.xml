@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+<item id="1" text="Hệ thống">
+<userdata name="hlink">null</userdata>
+<userdata name="options">0:0</userdata>
+<item id="101" text="Đăng xuất">
+<userdata name="hlink">/hPortal/login/login.jsp</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="102" text="Đổi mật khẩu">
+<userdata name="hlink">/hPortal/main/manager.jsp?func=../admin/changePassword</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+</item>
+<item id="2" text="Thiết kế">
+<userdata name="hlink">null</userdata>
+<userdata name="options">0:0</userdata>
+<item id="2_1" text="Quản lý menu">
+<userdata name="hlink">/hPortal/main/manager.jsp?func=../admin/menu&amp;useFilter=true</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+
+<item id="2_2" text="Quản lý danh mục">
+<userdata name="hlink">/hPortal/main/manager.jsp?func=../admin/directory_mgr&amp;useFilter=true</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="2_3" text="Cấu hình form động">
+<userdata name="hlink">/hPortal/admin/manager.jsp?func=dynform&amp;form_code=DYN_FORM</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="2_4" text="Cấu hình danh mục động">
+<userdata name="hlink">/hPortal/admin/manager.jsp?func=dynform&amp;form_code=ADM_DIRECTORY_MGR</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="2_5" text="Nhập báo cáo động">
+<userdata name="hlink">/hPortal/report/xlsReportImp.jsp</userdata>
+<userdata name="options">0:1</userdata>
+</item>
+<item id="2_6" text="Test báo cáo động">
+<userdata name="hlink">/hPortal/admin/manager.jsp?func=../DynamicView/DynamicReport</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="2_7" text="Nhập bản mẫu in ấn">
+<userdata name="hlink">/hPortal/DynamicView/xlsSelectFile.jsp?action=xlsImpTemplate</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="2_8" text="Test bản mẫu in ấn">
+<userdata name="hlink">/hPortal/common/jsp/printTicket.jsp?printList=2572339&amp;ticketType=FAIL_TICKET</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+</item>
+<item id="3" text="Quản trị hệ thống">
+<userdata name="hlink">null</userdata>
+<userdata name="options">0:0</userdata>
+<item id="3_1" text="Quản lý đơn vị">
+	<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=ORG_COMPANY</userdata>
+	<userdata name="options">0:0</userdata>
+</item>
+<item id="183_sp" type="separator"/>
+<item id="194" text="Quản lý nhân viên">
+<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=ORG_OFFICER</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="125" text="Quản lý NSD">
+	<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=ADM_USER</userdata>
+	<userdata name="options">0:0</userdata>
+</item>
+<item id="118" text="Quản lý nhóm NSD">
+<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=ADM_USER_GROUP</userdata>
+		<userdata name="options">0:0</userdata>
+</item>
+<item id="126" text="Nhập file excel">
+<userdata name="hlink">/hPortal/upload/fileSelectXLS.jsp?action=uploadExcel&amp;useFilter=false</userdata>
+<userdata name="options">0:1</userdata>
+</item>
+<item id="122" text="Phân quyền chức năng cho nhóm NSD">
+<userdata name="hlink">/hPortal/admin/manager.jsp?func=dynform2&amp;form_code=ADM_USERGROUP_FUNCTION&amp;useFilter=true</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="122_sp" type="separator"/>
+<item id="138" text="Quản lý câu lệnh SQL">
+<userdata name="hlink">/hPortal/main/manager.jsp?func=../admin/managerSQL</userdata>
+<userdata name="options">0:0</userdata>
+</item>
+<item id="138_sp" type="separator"/>
+</item>
+<item id="200" text="Tra cứu">
+    <item id="201" text="Dashboard">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../MiniHIS/dashboard</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>	
+	<item id="202" text="Thống kê dữ liệu tiếp nhận">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/FindMgrEx&amp;table=FINDING_DATA_UPLOADED</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>	
+	<item id="203" text="Thống kê dữ liệu gửi giám định">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/FindMgrEx&amp;table=FINDING_DATA_UPLOADED</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>	
+	<item id="204" text="Hồ sơ trả lại">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/FindMgrEx&amp;table=FINDING_DATA_UPLOADED</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>	
+	
+	<item id="205" text="Kiểm tra thẻ BHYT">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/registerInfo</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>	
+	<item id="206" text="Tra cứu thông tin đăng ký KCB">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../MiniHIS/registerInfo</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>	
+	<item id="207" text="Tra cứu hồ sơ KCB">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../MiniHIS/examList</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>	
+	<item id="208" text="Tìm kiếm bệnh nhân chuyển đi">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../MiniHIS/transferList&amp;type=1</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>	
+	<item id="209" text="Tìm kiếm bệnh nhân chuyển đến">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../MiniHIS/transferList&amp;type=2</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>	
+	
+</item>
+<item id="600" text="Báo cáo">
+	<item id="601" text="Danh sách hồ sơ">
+		<userdata name="hlink">/hPortal/report/openReport.jsp?code=12</userdata>
+		<userdata name="options">0:1</userdata>
+	</item>	
+</item>
+<item id="300" text="Hồ sơ">
+    <item id="301" text="Nhập đăng ký KCB">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../MiniHIS/DangKyKCB</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+    <item id="302" text="Nhập hồ sơ KCB">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../MiniHIS/HoSoKCB</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>	
+	<item id="303" text="Quản lý kỳ giám định">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=PT_KYGIAMDINH</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>	
+	<item id="304" text="Phê duyệt hồ sơ KCB">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../MiniHIS/approveKCB</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>	
+	<item id="305" text="Upload file hồ sơ">	
+	    <userdata name="hlink">/hPortal/main/manager.jsp?func=../MiniHIS/approve</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>	
+</item>
+
+<item id="400" text="Quản lý danh mục hệ thống">
+	<userdata name="hlink">Cấu hình tham số cho đơn vị</userdata>
+	<userdata name="options">0:0</userdata>
+	<item id="401" text="Quản lý danh mục CSYT">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=L001</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	<item id="402" text="Quản lý danh mục Khoa">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=DM_KHOA</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	<item id="403" text="Quản lý danh mục Hạng bệnh viện">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=DM_HANG_BV</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	<item id="404" text="Quản lý danh mục Huyện">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=DM_HUYEN</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	<item id="405" text="Quản lý danh mục Tỉnh">
+  		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=DM_TINH</userdata>
+  		<userdata name="options">0:0</userdata>
+ 	</item>
+ 	<item id="406" text="Quản lý danh mục Bệnh YHCT">
+  		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=DM_BENH_YHCT</userdata>
+  		<userdata name="options">0:0</userdata>
+ 	</item>
+ 	<item id="407" text="Quản lý danh mục Chế phẩm YHCT">
+  		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=DM_CHEPHAM_YHCT</userdata>
+  		<userdata name="options">0:0</userdata>
+ 	</item>
+ 	<item id="408" text="Quản lý danh mục Đường dùng">
+  		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=DM_DUONGDUNG</userdata>
+  		<userdata name="options">0:0</userdata>
+ 	</item>
+ 	<item id="409" text="Quản lý danh mục Nhóm theo chi phí">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=DM_NHOM_THEO_CHIPHI</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	<item id="410" text="Quản lý danh mục DVKT">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=DM_DVKT</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	<item id="411" text="Quản lý danh mục Tuyến BV">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/ListMgrEx&amp;table=DM_TUYEN_BV</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	<item id="412" text="Quản lý danh mục DVHC">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../dynform/TreeMgrEx&amp;table=DM_DVHC</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	
+</item>
+<item id="500" text="Ánh xạ danh mục">
+    <item id="501" text="Upload file danh mục">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../MiniHIS/uploadExcel</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>	
+	<item id="502" text="Ánh xạ danh mục dịch vụ">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../MiniHIS/serviceMap</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	<item id="503" text="Ánh xạ danh mục thuốc">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../MiniHIS/drugMap</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+	<item id="504" text="Ánh xạ danh mục vật tư y tế">
+		<userdata name="hlink">/hPortal/main/manager.jsp?func=../MiniHIS/materialMap</userdata>
+		<userdata name="options">0:0</userdata>
+	</item>
+</item>
+
+</menu>

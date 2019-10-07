@@ -1,0 +1,131 @@
+@media screen and (min-width: 1260px){
+
+	.banner_nav{
+		display: block;
+	}
+}
+@media (min-width: 992px) {
+
+}
+@media (max-width: 1000px) {
+ .container{
+    width: 100% !important;
+  }
+	
+}
+@media (max-width: 991px) {
+	
+  .icon_menu{
+		width: 35px;
+		height: 33px;
+		border-right: 1px solid #0b59ae;
+		box-shadow: 1px 0px 0px #000;		
+		cursor: pointer;
+		position: absolute;
+		top: 60px;
+		right: 0px;		
+		z-index: 1000;
+		background: url(../img/icon_menu.png) no-repeat center center;
+		border-radius: 3px;
+  }
+   
+	.header_menu ul li{
+		position:relative;		
+		width: 260px !important;
+		height: auto;
+		border-right: 0px;
+		border-left: 0px;
+		background-color:#0269cf;
+		border-bottom:1px solid #f4f4f4;
+		border-top-right-radius:0px!important;
+	    border-top-left-radius:0px!important;
+	}	
+	.header_menu .menu{
+		position: absolute !important;
+		width: 260px !important;
+		top:30px !important;
+		right: 0 !important;
+		z-index: 999;
+		display:none;
+	}
+	
+	.header_menu ul li ul li ul{
+		display: none !important;
+		background-color:#306;
+	}
+	
+	.header_menu ul li ul{
+		right: 0px !important;
+		top: 0px;
+		position: relative;
+		display:  none;
+		padding:0;
+		width:260px;	
+	}
+	.header_menu ul li ul li{
+		border: none;
+	}
+	
+	.header_menu ul li:hover a
+	{
+	 	height: 36px;
+		border-top-right-radius:0px!important;
+		border-top-left-radius:0px!important;			
+	}
+	.header_menu ul li:hover a > ul
+	{
+	 	display:block;
+			
+	}
+	.header_menu .menu .list_icons{
+		position: relative;
+		display: block;
+	}
+	.header_menu .menu .list_icons li{
+		height: 100%;
+		width: 70px;
+	}
+	
+		
+	.header_menu ul li ul li{
+		width: 100%;
+		background: #013063 !important;
+	}
+	.header_menu ul li ul li ul{
+		position: relative;
+		left: 0px;
+		background: #023163;
+		display: block;
+	}
+	.header_menu ul li ul li ul li a{
+		padding-left: 20px;
+		background: none;
+	}
+	.header_menu ul li ul li ul li{
+		border:none;
+	}
+	.header_menu ul li:hover ul li ul{
+		display: block;
+	}
+	.header_menu ul li a{
+		font-size: 13px;
+	}
+}
+@media (max-width: 768px) {
+
+
+
+}
+
+}
+@media (max-width: 480px) {
+
+ 
+}
+@media (max-width: 360px) {
+.box-signin {
+    width: 90% !important;
+	
+}  
+ 
+}

@@ -1,0 +1,132 @@
+<script type="text/javascript"
+	src="../common/script/jquery.i18n/jquery.i18n.js"></script>
+<script type="text/javascript"
+	src="../common/script/jquery.i18n/jquery.i18n.messagestore.js"></script>
+<script type="text/javascript" src="../common/i18n/i18n-ims.js"></script>
+<script type="text/javascript" src="../common/script/RestService.js"></script>
+<script type="text/javascript" src="../common/script/dbForm.js"></script>
+<script type="text/javascript" src="../common/script/dbToolbar.js"></script>
+<script type="text/javascript" src="../common/script/DataValidator.js"></script>
+<script type="text/javascript"
+	src="../common/script/jsdatetime/Scripts/DateTimePicker.js"></script>
+<script type="text/javascript" src="../common/script/CommonUtil.js"></script>
+<script type="text/javascript" src="../common/script/UIUtil.js"></script>
+<script type="text/javascript"
+	src="../common/script/jquery/jquery.toaster.js"></script>
+<link rel="stylesheet" href="../common/css/font-awesome.min.css">
+
+<link href="../common/script/jqueryui/jquery-ui-redmond.1.9.1.css"
+	rel="stylesheet" />
+<script src="../common/script/jqueryui/jquery-ui.1.9.1.js"></script>
+
+<script src="../common/script/select2/select2.full.min.js"></script>
+<link href="../common/script/select2/select2.min.css" rel="stylesheet" />
+<script src="../common/script/select2/i18n/vi.js"></script>
+<!-- <script src="../common/script/jquery.jsPlumb-1.4.1-all-min.js"></script> -->
+<script src="../common/script/jsPlumb-2.2.3-min.js"></script>
+<!-- <script src="../common/script/selectize/selectize.min.js"></script>
+<link href="../common/script/selectize/selectize.bootstrap3.css" rel="stylesheet"/>  -->
+<script type="text/javascript" src="../common/script/dialog/jBox.js"></script>
+<link href="../common/script/dialog/jBox.css" rel="stylesheet" />
+<script src="../common/script/jquery.qtip/jquery.qtip.min.js"></script>
+<link href="../common/script/jquery.qtip/jquery.qtip.min.css"
+	rel="stylesheet" />
+
+<link href="../common/script/jqgrid/css/ui.jqgrid.css" rel="stylesheet" />
+<script src="../common/script/jqgrid/js/i18n/grid.locale-vi.js"></script>
+<script src="../common/script/jqgrid/js/jquery.jqGrid.src.js"></script>
+<script type="text/javascript" src="../common/script/moment.min.js"></script>
+<div class="" style="width: 100%;">
+	<div style="position: relative;">
+		<div class="search-box">
+			<div class="inner-addon left-addon" style="width: 100%;">
+				<i class="fa fa-search sm" id="advancedSearch" style="z-index: 1;"
+					id="codeScanning"></i> <select class=" input-sm" id="txtSearch"
+					name="txtSearch" style="width: 100%;"></select>
+			</div>
+		</div>
+		<div id="gmap3" style="width: 100%;"></div>
+		<div class="full-info" id="dInfo"></div>
+		<div class="connect-info" id="connectInfo"></div>
+		<div class="device-detail" id="deviceDetail"></div>
+	</div>
+</div>
+<script type="text/javascript" src="../common/script/jquery.gmap3/markerclusterer.js"></script>
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDf9aUIlyatv6a0nzNkF2Hs1w-EPNMZtZQ&libraries=drawing,geometry"
+	type="text/javascript"></script>
+<!-- <script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGHR-VtRYLuvUMT9etr6OdbjJE-SQJ11g&libraries=drawing,geometry"
+	type="text/javascript"></script> -->
+<script type="text/javascript"
+	src="../common/script/jquery.gmap3/gmap3.min.js"></script>
+<script type="text/javascript"
+	src="../common/script/jquery.gmap3/gmap3Menu.js"></script>
+<script type="text/javascript" src="../common/script/GmapService.js"></script>
+<script type="text/javascript" src="../common/script/ConnectService.js"></script>
+<link rel="stylesheet"
+	href="../common/script/jquery.gmap3/gmap3Menu.css">
+<script type="text/javascript" src="../QLHT/home.js"></script>
+<script type="text/x-template" id='advanced-search'>
+        
+        <div class="form-inline" style="margin:5px; width:250px">
+			<div class="search-type hidden">
+			<div class="pull-left"  style="width:120px; margin-bottom:5px;">
+				<input type="radio" id='item_search' name="search" style="margin-top:0;" value="item" checked> Tìm trong hệ thống
+			</div>
+			<div  class="pull-right" style="width:120px; margin-bottom:5px;">
+  				<input type="radio" name="search" style="margin-top:0;" value="address"> Tìm địa chỉ
+			</div>
+			<hr style="width:100%">
+			</div>
+			<div class="search-options">
+		 	<div class="pull-left" style="width:120px;">
+				<div class="search-header">Cách tìm</div>
+				<div class="search-field"><input type="checkbox" id="match_search" value="match"> Tìm chính xác</div>
+				<div class="search-field"><input type="checkbox" id="code_search" class="search-field" value="code" checked="checked"> Theo mã</div>
+				<div class="search-field"><input type="checkbox" id="name_search" class="search-field" value="name"  checked="checked"> Theo tên</div>				
+			</div>
+			<div class="pull-right" style="width:120px;">				
+				<div class="search-header">Đối tượng tìm</div>
+				<div class="search-field"><input type="checkbox" id="station_search" value="station" checked="checked"> Nhà trạm</div>
+				<div class="search-field"><input type="checkbox" id="pole_search"  value="pole"  checked="checked"> Cột</div>
+				<div class="search-field"><input type="checkbox" id="manhole_search"  value="manhole"  checked="checked"> Cống, bể</div>
+				<div class="search-field"><input type="checkbox" id="joint_search"  value="joint"  checked="checked"> Măng xông</div>
+				<div class="search-field"><input type="checkbox" id="cable_search"  value="cable"  checked="checked"> Cáp</div>
+			</div>
+			</div>
+        </div>
+	</script>
+<script>	
+	var user_id = '{user_id}';
+	var user_type = '{user_type}';
+	var province_id = '{province_id}';
+	var center_id = '{center_id}';
+	var session_par = [user_id,user_type,province_id,center_id];
+	var zoom_level = {zoom_level};
+	var lat = '{lat}';
+	var lng = '{lng}';
+	var cid='{cid}';
+	var type='{type}';
+	var MOUSE_OVER = false;
+	$('body').bind('mousewheel', function(e){
+	  if(MOUSE_OVER){
+	    if(e.preventDefault) { e.preventDefault(); } 
+	    e.returnValue = false; 
+	    return false; 
+	  }
+	});
+	initRest();
+	var home = new Home();
+	$(document).on('change', 'input[name="search"]', function(e) {
+		search_type = $(this).val();
+		if (search_type == "item")
+			$('.search-options').show();
+		else
+			$('.search-options').hide();
+	});
+	home.load();
+
+</script>
+
+</html>

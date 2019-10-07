@@ -1,0 +1,87 @@
+var i18n_ims= i18n_ims || {};
+i18n_ims.com_msg={
+		'vn': {
+			'search':'Tìm kiếm',
+			'system': 'Hệ thống',
+			'list' : 'Danh sách',
+			'add_new' : 'Thêm mới',
+			'cancel' : 'Bỏ qua',
+			'close' : 'Đóng',
+			'save' : 'Lưu',
+			'delete' : 'Xóa',
+			'geocode' : 'Cập nhật vị trí',
+			'save_success': 'Lưu dữ liệu thành công!',
+			'save_unsuccess': 'Lưu dữ liệu không thành công!',
+			'delete_success': 'Xóa dữ liệu thành công!',
+			'delete_unsuccess' : 'Xóa dữ liệu không thành công',
+			'unchecked' : 'Chưa chọn bản ghi nào!',
+			'delete_confirm' : 'Tất cả các bản ghi đã chọn đều bị xóa. Bạn có chắc chắn không?',
+			'notice_required':'Chú ý (*): là mục bắt buộc phải nhập thông tin',
+			'existed' : 'đã tồn tại',
+			'over_zone': 'Ngoài địa phận quản lý',
+			'nm' : 'Tên',
+			'cod': 'Mã',
+			'add': 'Địa chỉ',
+			'connect': 'Kết nối',
+			'description': 'Mô tả',
+			'reason': 'Nguyên nhân',
+			'port': ' cổng',
+			'station': 'Nhà trạm',
+			'pole': 'Cột',
+			'manhole': 'Cống/bể',
+			'joint': 'Măng xông',
+			'empty': 'Rỗng',
+			'detail': 'Chi tiết',
+	        'slot_list': 'DANH SÁCH SLOT',
+	        'card_list': 'DANH SÁCH CARD',
+	        'port_list': 'DANH SÁCH PORT'
+		},
+		'en': {
+			'search':'Search',
+			'system': 'System',
+			'list' : 'List',
+			'add_new' : 'Add new',
+			'cancel' : 'Cancel',
+			'close' : 'Close',
+			'save' : 'Save',
+			'delete' : 'Delete',
+			'save_success': 'Save data sucessful!',
+			'save_unsuccess': 'Save data unsucessful!',
+			'delete_success': 'Delete data sucessful!',
+			'delete_unsuccess' : 'Delete data unsucessful!',
+			'unchecked' : 'Please select a record!',
+			'delete_confirm' : 'All selected records will be deleted. Are you sure?',
+			'notice_required':'Notice:(*) item required to input information',
+			'over_zone': 'Not in province',
+			'existed' : 'Existed',
+			'nm' : 'Name',
+			'cod': 'Code',
+			'add': 'Address',
+			'connect': 'Connect',
+			'description': 'Description',
+			'reason': 'Reason',
+			'port': ' Port(s)',
+			'station': 'Station',
+			'pole': 'Pole',
+			'manhole': 'Manhole',
+			'joint': 'Joint',
+			'empty': 'Empty',
+			'detail': 'Detail',
+	        'slot_list': 'SLOT LIST',
+	        'card_list': 'CARD LIST',
+	        'port_list': 'PORT LIST'
+				
+		}
+};
+i18n_ims.err_code={
+		'vn': {
+	        'ORA-00001' : 'Lỗi 01',
+	        'ORA-00002' : 'Lỗi 02',
+	        'ORA-00003' : 'Lỗi 03'
+	        },
+        'en': {
+	        'ORA-00001' : 'Err 01',
+	        'ORA-00002' : 'Err 02',
+	        'ORA-00003' : 'Err 03'
+	        }
+};

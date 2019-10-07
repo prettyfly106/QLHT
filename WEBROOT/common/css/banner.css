@@ -1,0 +1,133 @@
+#blueBar {
+	background-color: #3b5998;
+	border-bottom: 1px solid #133783;
+	position: relative;
+	z-index: 300
+}
+
+body {
+	background: #fff;
+	font-size: 11px;
+	font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+	color: #333;
+	line-height: 1.28;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	direction: ltr;
+	unicode-bidi: embed
+}
+
+
+
+.fbx #pageHead,#blueBar #pageHead {
+	padding-top: 0px;
+	width: 100%
+}
+
+.clearfix {
+	zoom: 1
+}
+
+.clearfix:after {
+	clear: both;
+	content: ".";
+	display: block;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+	visibility: hidden
+}
+
+#pageLogo.pixelSnapped {
+	margin-left: -7px;
+	padding-right: 1px
+}
+
+#pageLogo {
+	float: left;
+	margin-left: -6px;
+	z-index: 5
+}
+
+h1 {
+	font-size: 14px
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-size: 13px;
+	color: #333;
+	margin: 0;
+	padding: 0
+}
+
+#pageHead {
+	margin: 0 auto;
+	width: 100%
+}
+
+#pageLogo.pixelSnapped a,#pageLogo.pixelSnapped a:hover,#pageLogo.pixelSnapped a:focus,#pageLogo.pixelSnapped a:active
+	{
+	background-image:
+		url(http://static.ak.fbcdn.net/rsrc.php/v2/yu/r/N-aiPP79KVw.png);
+	background-repeat: no-repeat;
+	background-position: 1px -152px
+}
+
+#pageLogo a,#pageLogo a:hover,#pageLogo a:focus,#pageLogo a:active {
+	background-image:
+		url(http://static.ak.fbcdn.net/rsrc.php/v2/yu/r/N-aiPP79KVw.png);
+	background-repeat: no-repeat;
+	background-position: 2px -186px;
+	display: block;
+	height: 31px;
+	outline: none;
+	width: 103px
+}
+
+a {
+	cursor: pointer;
+	color: #3b5998;
+	-moz-outline-style: none;
+	text-decoration: none
+}
+
+.Subject {
+    color: #000000;
+    font-family: tahoma,verdana;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.buttoncss {
+    background-color: #F7F8F9;
+    border: 1px solid #909090;
+    color: #545454;
+    font-family: Tahoma,Verdana;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 10px;
+    float:none;
+}
+.list_item {
+    background-color: #F7F8F9;
+    font-family: Tahoma,Verdana;
+    font-size: 11px;
+    height: 20px;
+}
+
+.list {
+    border: 1px solid #E2E2E2;
+    font-family: Tahoma,Verdana;
+    font-size: 11px;
+}
+
+.list_header {
+    background-image: url("../image/caption_bg.gif");
+    border-bottom: 1px solid #E2E2E2;
+    color: #000000;
+    font-family: Tahoma,Verdana;
+    font-size: 11px;
+    font-weight: bold;
+    height: 25px;
+}   

@@ -1,0 +1,79 @@
+<html>
+<title></title>
+<head>
+
+
+		<LINK href="../common/decorate/zoho/css/wmsbar.css" type=text/css rel=stylesheet>
+		<script type="text/javascript" src="../common/decorate/zoho/javascript/wmsbar.js"></script>
+	
+<link rel="stylesheet" type="text/css" href="../common/script/dhtmlxSuite/dhtmlxMenu/codebase/skins/dhtmlxmenu_dhx_web.css">
+<script src="../common/script/dhtmlxSuite/dhtmlxMenu/codebase/dhtmlxcommon.js"></script>
+<script src="../common/script/dhtmlxSuite/dhtmlxMenu/codebase/dhtmlxmenu.js"></script>
+<script src="../common/script/dhtmlxSuite/dhtmlxMenu/codebase/ext/dhtmlxmenu_ext.js"></script>
+<script type="text/javascript" src="{menuJS}"></script>
+<style type="text/css">
+.style1 {
+	background-image: url('../common/image/a.jpg');
+}
+.style2 {
+	background-image: url('../common/image/bt.jpg');
+}
+</style>
+</head>
+<script type="text/javascript">
+var menu1;
+function loadMenu(){
+	menu1 = new dhtmlXMenuObject("menuObj", "dhx_web");
+    //menu1.setIconsPath("../common/imgs/");
+    menu1.attachEvent("onClick", processMenu);
+    var menuXML="{menuFile}"; //'/debt/common/script/menu/1.xml';
+    menu1.loadXML(menuXML);
+    
+}
+function doOnLoad(){
+	loadMenu();
+	document.getElementById("fbody").style.height=document.body.clientHeight+document.body.scrollTop-55+"px";
+}
+function displayRow(){
+	var header = document.getElementById("headerRow");
+	var footer=document.getElementById("footer");
+	if (header.style.display == '')  
+	{
+	  header.style.display = 'none';
+//	  footer.style.display='none';
+	  document.getElementById("bottomdiv").style.height="21px";
+
+	}
+	else
+	{ 
+	  header.style.display = '';
+	  footer.style.display='';
+	}
+}
+</script>
+<body onload="doOnLoad();" style="margin: 0;overflow:hidden">
+<form method="POST" action="{FileName}" name = "FormName" id = "FormName">
+<input type="hidden" id="sAction" name="sAction" value="{menuFile}">
+
+<table border="0" width="100%"  class="iframebody">
+	<tr id="headerRow">
+		<td style="height: 0px" class="style1">
+		<!-- 
+		<img src="../common/image/header1.jpg">
+		 -->
+		</td>
+	</tr>
+	<tr height="1px" valign="top">
+		<td><div id="menuObj" style="overflow: hidden;"></div></td>
+	</tr>
+	<tr>
+		<td>
+		  <iframe id="fbody" class="fbody" name="fbody" src="" width="100%"  frameborder="no" scrolling="auto" style="border-style: none;">
+		  <p></p>
+		</iframe>
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>
